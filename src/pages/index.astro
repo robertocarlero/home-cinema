@@ -1,5 +1,6 @@
 ---
-
+import VignetteOverlay from '../components/VignetteOverlay.astro';
+import image from '../assets/hero-background.jpg';
 ---
 
 <html lang="en">
@@ -8,9 +9,16 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Home Cinema - Vignette Overlay Demo</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				border: 0;
+			}
+		</style>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<VignetteOverlay imageUrl={image?.src} width="100vw" height="100vh" />
 	</body>
 </html>
