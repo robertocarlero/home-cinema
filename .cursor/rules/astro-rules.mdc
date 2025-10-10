@@ -1,0 +1,62 @@
+---
+alwaysApply: true
+---
+
+**Tech Stack Enforcement**
+
+-   The project stack is fixed:  
+    **Astro.js + Tailwind + shadcn/ui + TypeScript.**
+-   No additional UI frameworks or styling libraries may be introduced (e.g., no Chakra, no Material UI).
+-   Avoid third-party state management unless explicitly required.
+
+**Component Framework Rules**
+
+-   **Astro-first:**  
+    Always implement components in `.astro` files unless the component requires **advanced interactivity** (complex state, forms, animations, etc.).
+-   **React fallback:**  
+    Use React components (`.tsx`) **only** for dynamic or interactive behavior that cannot be achieved natively in Astro.
+-   React components must use the **minimal hydration directive** (`client:idle`, `client:visible`, etc.) — never `client:load` unless absolutely necessary.
+-   Avoid mixing Astro and React unnecessarily in the same page or layout.
+-   Keep React and Astro components organized under separate folders:
+    ```
+    /src/components/astro
+    /src/components/react
+    ```
+
+**Language and Text**
+
+-   All UI text and messages must be in **English**.
+-   Centralize all user-facing strings in `/constantes/ui_texts.ts`.
+-   Never mix languages within the same file.
+
+**Accessibility and Semantics**
+
+-   Follow semantic HTML standards strictly.
+-   Use `<section>`, `<header>`, `<main>`, `<nav>`, `<footer>` appropriately.
+-   Always include `alt` text for images and `aria` attributes when relevant.
+-   Avoid empty or duplicate alt text.
+-   Use shadcn/ui components where possible to maintain accessibility compliance.
+-   Use headings (`<h1>`, `<h2>`, etc.) in logical hierarchy.
+
+    **Use of shadcn/ui Components**
+
+    -   Use shadcn/ui components **only as building blocks**.
+    -   Do not modify the library’s core source — extend components locally if customization is needed.
+    -   Override styles with Tailwind classes, not inline CSS.
+    -   Follow shadcn/ui accessibility patterns and props.
+    -   Keep imports grouped and consistent:
+        ```ts
+        import { Button } from '@/components/ui/button';
+        import { Card, CardContent } from '@/components/ui/card';
+        ```
+
+    **Tailwind-Specific Styling**
+
+    -   Use **Tailwind CSS exclusively** for all visual styling.
+    -   No custom CSS files, inline styles, or CSS-in-JS solutions.
+    -   Use **utility classes** instead of custom class names whenever possible.
+    -   Create **custom reusable patterns** (buttons, cards, typography) using Tailwind and shadcn/ui components.
+
+        ```
+
+        ```
