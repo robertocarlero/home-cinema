@@ -1,0 +1,83 @@
+---
+/**
+ * Header component for the Home Cinema application.
+ * Displays navigation bar with logo, menu items, and call-to-action button.
+ */
+
+import { Menu } from 'lucide-react';
+
+import { Button } from '@/components/ui/button';
+import WhatsAppIcon from '@/components/icons/WhatsAppIcon.astro';
+
+import {
+	NAVIGATION_ROUTES,
+	HOME_ROUTE,
+	WHATSAPP_ROUTE,
+} from '@/constants/navigation';
+
+import logo from '@/assets/logo.png';
+
+export interface Props {
+	className?: string;
+}
+
+const { className = '' } = Astro.props;
+---
+
+<header class={`sticky top-0 z-50 bg-black w-full ${className}`}>
+	<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+		<div class="flex items-center justify-between h-16">
+			<!-- Logo Section -->
+			<a href={HOME_ROUTE} class="flex items-center space-x-3">
+				<!-- Logo Image -->
+				<img
+					src={logo.src}
+					alt="Home Cinema Logo"
+					class="h-8 object-contain"
+				/>
+			</a>
+
+			<!-- Navigation Menu -->
+			<nav class="hidden md:flex items-center space-x-8">
+				{
+					NAVIGATION_ROUTES.map((route) => (
+						<a
+							href={route.href}
+							class="text-white text-sm font-medium hover:text-neutral-200 transition-colors"
+						>
+							{route.label}
+						</a>
+					))
+				}
+			</nav>
+
+			<!-- Right Section -->
+			<div class="flex items-center space-x-4">
+				<!-- WhatsApp Section -->
+				<a
+					href={WHATSAPP_ROUTE}
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<Button variant="ghost">
+						<WhatsAppIcon size={20} />
+						WhatsApp
+					</Button>
+				</a>
+
+				<!-- CTA Button -->
+				<Button>Get Free Consultation</Button>
+			</div>
+
+			<!-- Mobile Menu Button -->
+			<Button
+				variant="ghost"
+				size="icon-sm"
+				className="md:hidden text-white hover:bg-gray-800"
+				aria-label="Toggle menu"
+			>
+				<Menu class="w-6 h-6" />
+			</Button>
+		</div>
+	</div>
+</header>

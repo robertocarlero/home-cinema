@@ -4,6 +4,8 @@
  * Provides the base HTML structure with head, meta tags, and body setup.
  */
 
+import Header from './Header.astro';
+
 export interface Props {
 	title?: string;
 	description?: string;
@@ -43,7 +45,8 @@ const {
 		</style>
 	</head>
 	<body class={theme}>
-		<main>
+		<Header />
+		<main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 			<slot />
 		</main>
 	</body>
