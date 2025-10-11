@@ -1,0 +1,50 @@
+---
+/**
+ * Layout component for the Home Cinema application.
+ * Provides the base HTML structure with head, meta tags, and body setup.
+ */
+
+export interface Props {
+	title?: string;
+	description?: string;
+	lang?: string;
+	theme?: 'light' | 'dark';
+}
+
+const {
+	title = 'Home Cinema',
+	description = 'Transform your space into a home cinema experience',
+	lang = 'en',
+	theme = 'dark'
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang={lang} class={theme}>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
+		<title>{title}</title>
+		
+		<!-- Import global styles -->
+		<link rel="stylesheet" href="/src/styles/global.css" />
+		
+		<!-- Reset styles -->
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				border: 0;
+				box-sizing: border-box;
+			}
+		</style>
+	</head>
+	<body class={theme}>
+		<main>
+			<slot />
+		</main>
+	</body>
+</html>

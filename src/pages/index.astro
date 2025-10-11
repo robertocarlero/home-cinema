@@ -1,25 +1,13 @@
 ---
 import image from '@/assets/hero-background.jpg';
 import VignetteOverlay from '@/components/VignetteOverlay.astro';
-import '@/styles/global.css';
+import Layout from '@/components/layouts/Layout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Home Cinema - Vignette Overlay Demo</title>
-		<style>
-			* {
-				margin: 0;
-				padding: 0;
-				border: 0;
-			}
-		</style>
-	</head>
-	<body class="dark">
-		<VignetteOverlay imageUrl={image?.src} width="100vw" height="100vh" />
-	</body>
-</html>
+<Layout 
+	title="Home Cinema - Vignette Overlay Demo"
+	description="Experience the immersive vignette overlay effect for your home cinema setup"
+	theme="dark"
+>
+	<VignetteOverlay imageUrl={image?.src} width="100vw" height="100vh" />
+</Layout>
