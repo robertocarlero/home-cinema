@@ -3,6 +3,8 @@
  * Centralizes all navigation paths and labels for consistency.
  */
 
+import { NAVIGATION } from './ui_texts';
+
 export interface NavigationRoute {
 	href: string;
 	label: string;
@@ -11,15 +13,15 @@ export interface NavigationRoute {
 export const ROUTES = {
 	SERVICES: {
 		href: '/services',
-		label: 'Services',
+		label: NAVIGATION.services,
 	},
 	PROJECTS: {
 		href: '/projects',
-		label: 'Projects',
+		label: NAVIGATION.projects,
 	},
 	CONTACT: {
 		href: '/contact',
-		label: 'Contact',
+		label: NAVIGATION.contact,
 	},
 } as const;
 

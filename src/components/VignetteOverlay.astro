@@ -19,7 +19,9 @@ const {
 
 <div class={`vignette-container ${className}`}>
 	<div class="background-image"></div>
-	<div class="vignette-overlay" id="vignette"></div>
+	<div class="vignette-overlay" id="vignette">
+		<slot />
+	</div>
 </div>
 
 <style
@@ -80,6 +82,7 @@ const {
 	function initVignetteEffect() {
 		const vignette = document.getElementById('vignette');
 		const container = document.querySelector('.vignette-container');
+		const exclude = container?.querySelectorAll('.exclude-overlay');
 
 		if (!vignette || !container) return;
 
@@ -94,6 +97,17 @@ const {
 
 			vignette.style.setProperty('--mouse-x', xPercent + '%');
 			vignette.style.setProperty('--mouse-y', yPercent + '%');
+		});
+
+		exclude?.forEach((item) => {
+			item?.addEventListener('mouseenter', (event) => {
+				vignette.style.setProperty('--spotX', '0px');
+				vignette.style.setProperty('--spotY', '0px');
+			});
+			item?.addEventListener('mouseleave', () => {
+				vignette.style.setProperty('--spotX', '150px');
+				vignette.style.setProperty('--spotY', '150px');
+			});
 		});
 
 		container.addEventListener('mouseleave', () => {

@@ -1,13 +1,17 @@
 ---
-import image from '@/assets/hero-background.jpg';
-import VignetteOverlay from '@/components/VignetteOverlay.astro';
+/**
+ * Home page for the Home Cinema application.
+ * Features the main hero section with cinematic background and call-to-action.
+ */
+
+import Hero from '@/components/Hero.astro';
 import Layout from '@/components/layouts/Layout.astro';
 ---
 
-<Layout 
-	title="Home Cinema - Vignette Overlay Demo"
-	description="Experience the immersive vignette overlay effect for your home cinema setup"
+<Layout
+	title="Home Cinema in Dallas - Custom Home Theater Solutions"
+	description="From design to setup, we create tailored home theater experiences that fit your lifestyle."
 	theme="dark"
 >
-	<VignetteOverlay imageUrl={image?.src} width="100vw" height="100vh" />
+	<Hero />
 </Layout>
