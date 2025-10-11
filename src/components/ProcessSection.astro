@@ -1,0 +1,41 @@
+---
+/**
+ * Process Section component for the Home Cinema application.
+ * Displays the 3-step process with an interactive slider showcasing each step.
+ */
+
+import { HOME_PROCESS_SECTION } from '@/constants/ui_texts';
+import { Slider } from '@/components/react/Slider.tsx';
+import { Button } from '@/components/ui/button';
+---
+
+<section class="py-24 bg-black text-white w-full">
+	<div class="max-w-5xl mx-auto">
+		{/* Header Section */}
+		<div class="mb-12">
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+				{/* Title */}
+				<div>
+					<h2 class="text-3xl font-bold leading-tight mb-6">
+						{HOME_PROCESS_SECTION.title}
+					</h2>
+				</div>
+
+				{/* Description and CTA */}
+				<div>
+					<p class="text-neutral-500 leading-none mb-2">
+						{HOME_PROCESS_SECTION.description}
+					</p>
+					<Button variant="outline" size="sm">
+						{HOME_PROCESS_SECTION.primaryButton}
+					</Button>
+				</div>
+			</div>
+		</div>
+
+		{/* Slider Section */}
+		<div>
+			<Slider slides={HOME_PROCESS_SECTION.steps} client:visible />
+		</div>
+	</div>
+</section>

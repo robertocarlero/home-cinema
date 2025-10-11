@@ -17,11 +17,11 @@ const {
 	title = 'Home Cinema',
 	description = 'Transform your space into a home cinema experience',
 	lang = 'en',
-	theme = 'dark'
+	theme = 'dark',
 } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang={lang} class={theme}>
 	<head>
 		<meta charset="utf-8" />
@@ -30,10 +30,10 @@ const {
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
 		<title>{title}</title>
-		
+
 		<!-- Import global styles -->
 		<link rel="stylesheet" href="/src/styles/global.css" />
-		
+
 		<!-- Reset styles -->
 		<style>
 			* {
@@ -46,7 +46,7 @@ const {
 	</head>
 	<body class={theme}>
 		<Header />
-		<main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+		<main class="w-full px-4 sm:px-6 lg:px-8 overflow-hidden">
 			<slot />
 		</main>
 	</body>
