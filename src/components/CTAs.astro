@@ -1,0 +1,39 @@
+---
+// CTAs section component for the Home Cinema application.
+// Features call-to-action buttons for consultation, WhatsApp, and phone contact.
+
+import { Button } from '@/components/ui/button';
+
+const buttons = [
+  {
+    text: "Request your free consultation",
+    variant: "default" as const,
+  },
+  {
+    text: "Chat on WhatsApp",
+    variant: "outline" as const,
+  },
+  {
+    text: "Call now",
+    variant: "outline" as const,
+  },
+];
+---
+
+<section class="flex flex-col items-center justify-center gap-2.5 px-0 py-24 bg-neutral-50">
+  <h1 class="font-bold text-black text-4xl">
+    Ready to build your private cinema?
+  </h1>
+
+  <p class="font-medium text-neutral-500 text-lg text-center">
+    Book your free consultation and we'll contact you within 24 hours.
+  </p>
+
+  <div class="light flex items-start gap-4 mt-6 text-black">
+    {buttons.map((button) => (
+      <Button variant={button.variant}>
+        {button.text}
+      </Button>
+    ))}
+  </div>
+</section>
