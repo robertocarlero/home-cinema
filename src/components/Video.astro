@@ -1,0 +1,77 @@
+---
+/**
+ * Video section component for the Home Cinema application.
+ * Features a background video with overlay text and gradient effects.
+ */
+
+ import video from '@/assets/videos/home.mp4';
+import VignetteOverlay from '@/components/VignetteOverlay.astro';
+
+
+export interface Props {
+	className?: string;
+}
+
+const { className = '' } = Astro.props;
+---
+
+<section class={`relative flex items-center aspect-video bg-black overflow-hidden ${className}`}>
+  <!-- Background Video -->
+  <video
+    autoplay
+    class="absolute inset-0 w-full h-full object-cover"
+    loop
+    muted
+    playsinline
+  >
+    <source src={video} type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <VignetteOverlay
+    className="absolute top-0 left-0 w-full h-full z-10"
+    height="100%"
+    imageUrl={video}
+	width='100%'
+	>
+
+  <!-- Content Container -->
+  <div class="container relative flex flex-col justify-center gap-12 px-14 h-full">
+    <!-- Text Content -->
+	 <div class="bg-black w-2xl h-96 absolute left-0 blur-3xl rounded-full" />
+    <div class="z-10 exclude-overlay max-w-lg cursor-auto flex flex-col justify-center gap-14">
+      <h2 class="text-5xl text-white font-bold">
+        Home Cinema.
+        <br />
+        All-time immersive.
+      </h2>
+      <p class=" text-2xl font-bold">
+        <span class="text-neutral-500">
+          Our professional installation transforms your living space into a
+          private cinema. From Dolby Atmos sound to 4K/8K projectors and
+          custom lighting,{" "}
+        </span>
+        <span class="text-white">
+          every detail is designed for total immersion
+        </span>
+        <span class="text-neutral-500">
+          . Movie nights, game days, or streaming—your home is always ready
+          for the big screen.
+        </span>
+      </p>
+    </div>
+  </div>
+  </VignetteOverlay>
+</section>
+
+<style>
+  /* Additional styles for video background */
+  video {
+    z-index: 1;
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+</style>

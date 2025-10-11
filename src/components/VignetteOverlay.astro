@@ -15,11 +15,13 @@ const {
 	height = '600px',
 	className = '',
 } = Astro.props;
+
+const id = Math.random().toString(36).substring(2, 15);
 ---
 
-<div class={`vignette-container ${className}`}>
+<div class={`vignette-container ${className}`} id={id}>
 	<div class="background-image"></div>
-	<div class="vignette-overlay" id="vignette">
+	<div class="vignette-overlay" id={`vignette-${id}`}>
 		<slot />
 	</div>
 </div>
@@ -78,17 +80,17 @@ const {
 	}
 </style>
 
-<script>
+<script define:vars={{ id }} is:inline>
 	function initVignetteEffect() {
-		const vignette = document.getElementById('vignette');
-		const container = document.querySelector('.vignette-container');
+		const vignette = document.getElementById(`vignette-${id}`);
+		const container = document.querySelector(`.vignette-container#${id}`);
 		const exclude = container?.querySelectorAll('.exclude-overlay');
 
 		if (!vignette || !container) return;
 
 		container.addEventListener('mousemove', (e) => {
 			const rect = container.getBoundingClientRect();
-			const me = e as MouseEvent;
+			const me = e;
 			const x = me.clientX - rect.left;
 			const y = me.clientY - rect.top;
 
