@@ -51,3 +51,24 @@ export const HOME_PROCESS_SECTION = {
 		},
 	],
 } as const;
+
+export const HOME_CLAIMS_SECTION = {
+	claims: [
+		{
+			value: '95%',
+			description: 'Our Clients Recommend Us to Family & Friends',
+			hasBorder: false,
+		},
+		{
+			value: 'Over 100+',
+			description: 'Custom Home Cinemas Designed & Installed in Dallas',
+			hasBorder: true,
+		},
+		{
+			value: '#1',
+			description: 'Home cinema installers near of you',
+			hasBorder: false,
+		},
+	],
+	buttonText: 'Get Your Free Custom Home Cinema Quote Today',
+} as const;

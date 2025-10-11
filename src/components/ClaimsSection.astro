@@ -1,0 +1,47 @@
+---
+/**
+ * Claims section component for the Home Cinema application.
+ * Highlights quantitative achievements and benefits.
+ */
+
+import { HOME_CLAIMS_SECTION } from '@/constants/ui_texts';
+import { Button } from '@/components/ui/button';
+import { ArrowUpRight } from 'lucide-react';
+
+export interface Props {
+	className?: string;
+}
+
+const { className = '' } = Astro.props;
+---
+
+<section
+	class={`flex flex-col items-center justify-center gap-[50px] sm:gap-[100px] px-0 py-[50px] sm:py-[100px] bg-black ${className}`}
+>
+	<div class="flex flex-col sm:flex-row items-center justify-center w-full">
+		{
+			HOME_CLAIMS_SECTION.claims.map((claim) => (
+				<div
+					class={`flex flex-col w-full sm:w-[350px] items-center justify-center gap-2.5 px-5 py-[25px] sm:py-[50px] ${
+						claim.hasBorder
+							? 'border-r-2 border-l-2 sm:border-r-2 sm:border-l-2 border-neutral-900'
+							: ''
+					}`}
+				>
+					<h2 class="w-fit mt-[-2.00px] font-h-1 text-neutral-50 text-4xl sm:text-5xl font-bold tracking-tight leading-tight whitespace-nowrap">
+						{claim.value}
+					</h2>
+
+					<p class="self-stretch font-h-3 text-neutral-500 text-base sm:text-lg text-center tracking-tight leading-relaxed">
+						{claim.description}
+					</p>
+				</div>
+			))
+		}
+	</div>
+
+	<Button variant="link" className="text-neutral-500">
+		{HOME_CLAIMS_SECTION.buttonText}
+		<ArrowUpRight className="w-4 h-4" />
+	</Button>
+</section>
