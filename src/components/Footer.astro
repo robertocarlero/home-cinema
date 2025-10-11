@@ -1,0 +1,54 @@
+---
+/**
+ * Footer component for the Home Cinema application.
+ * Displays contact information and social media links.
+ */
+
+import { FOOTER_INFO } from '@/constants/ui_texts';
+
+import FacebookIcon from './icons/FacebookIcon.astro';
+import InstagramIcon from './icons/InstagramIcon.astro';
+import YouTubeIcon from './icons/YouTubeIcon.astro';
+
+// Map icon names to components
+const iconMap = {
+	Facebook: FacebookIcon,
+	Instagram: InstagramIcon,
+	Youtube: YouTubeIcon,
+} as const;
+---
+
+<footer class="flex flex-col items-center justify-center gap-8 pt-12 pb-0 px-12 relative bg-black">
+	<div class="flex items-center justify-between relative w-full">
+		<address class="text-neutral-500 text-lg font-semibold">
+			{FOOTER_INFO.address}
+			<br />
+			<a href="tel:{FOOTER_INFO.phone}">{FOOTER_INFO.phone}</a>
+		</address>
+
+		<nav
+			aria-label="Social media links"
+			class="inline-flex items-start gap-4 relative"
+		>
+			{FOOTER_INFO.socialMediaLinks.map((social) => {
+				const IconComponent = iconMap[social.name as keyof typeof iconMap];
+
+				return (
+					<a
+						aria-label={social.label}
+						class="flex w-12 h-12 items-center justify-center gap-2 rounded-full bg-neutral-900 border border-neutral-500 opacity-60 hover:opacity-100 transition-opacity"
+						href={social.url}
+					>
+						<IconComponent className="w-6 h-6 text-neutral-400" />
+					</a>
+				);
+			})}
+		</nav>
+	</div>
+
+	<div class="flex items-center justify-center gap-2 px-0 py-4 w-full border-t border-neutral-900">
+		<p class="text-neutral-500 text-sm font-normal ">
+			{FOOTER_INFO.copyright}
+		</p>
+	</div>
+</footer>

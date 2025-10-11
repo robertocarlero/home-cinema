@@ -97,6 +97,17 @@ export const HOME_BLOCKS_SECTION = {
 	],
 } as const;
 
+export const FOOTER_INFO = {
+	address: 'DFW Metroplex, Texas',
+	phone: '(469) 412-5478',
+	copyright: `© ${new Date().getFullYear()} Home Cinema Solutions, All Rights Reserved.`,
+	socialMediaLinks: [
+		{ name: 'Instagram', label: 'Instagram', url: '#' },
+		{ name: 'Youtube', label: 'YouTube', url: '#' },
+		{ name: 'Facebook', label: 'Facebook', url: '#' },
+	],
+} as const;
+
 export const HOME_PACKAGES_SECTION = {
 	title: 'Curated Packages',
 	description:
