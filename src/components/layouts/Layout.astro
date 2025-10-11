@@ -22,17 +22,17 @@ const {
 ---
 
 <!doctype html>
-<html lang={lang} class={theme}>
+<html class={theme} lang={lang}>
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content={description} />
+		<link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+		<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+		<meta content={Astro.generator} name="generator" />
+		<meta content={description} name="description" />
 		<title>{title}</title>
 
 		<!-- Import global styles -->
-		<link rel="stylesheet" href="/src/styles/global.css" />
+		<link href="/src/styles/global.css" rel="stylesheet" />
 
 		<!-- Reset styles -->
 		<style>

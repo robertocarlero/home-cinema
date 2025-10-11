@@ -4,9 +4,10 @@
  * Displays curated home cinema packages with features and pricing options.
  */
 
-import { HOME_PACKAGES_SECTION } from '@/constants/ui_texts';
-import { Button } from '@/components/ui/button';
 import { Users, MonitorSpeaker, Star } from 'lucide-react';
+
+import { Button } from '@/components/ui/button';
+import { HOME_PACKAGES_SECTION } from '@/constants/ui_texts';
 
 export interface Props {
 	className?: string;
@@ -84,8 +85,8 @@ const iconMap = {
 							</div>
 
 							<Button
-								variant={pkg.buttonVariant}
 								className="w-full rounded-md px-4 py-2 font-body-medium"
+								variant={pkg.buttonVariant}
 							>
 								{pkg.buttonText}
 							</Button>

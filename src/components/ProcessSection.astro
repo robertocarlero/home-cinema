@@ -4,9 +4,9 @@
  * Displays the 3-step process with an interactive slider showcasing each step.
  */
 
-import { HOME_PROCESS_SECTION } from '@/constants/ui_texts';
 import { Slider } from '@/components/react/Slider.tsx';
 import { Button } from '@/components/ui/button';
+import { HOME_PROCESS_SECTION } from '@/constants/ui_texts';
 ---
 
 <section class="py-24 bg-black text-white w-full">
@@ -26,7 +26,7 @@ import { Button } from '@/components/ui/button';
 					<p class="text-neutral-500 leading-none mb-2">
 						{HOME_PROCESS_SECTION.description}
 					</p>
-					<Button variant="outline" size="sm">
+					<Button size="sm" variant="outline">
 						{HOME_PROCESS_SECTION.primaryButton}
 					</Button>
 				</div>
@@ -35,7 +35,7 @@ import { Button } from '@/components/ui/button';
 
 		{/* Slider Section */}
 		<div>
-			<Slider slides={HOME_PROCESS_SECTION.steps} client:visible />
+			<Slider client:visible slides={HOME_PROCESS_SECTION.steps} />
 		</div>
 	</div>
 </section>

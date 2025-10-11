@@ -1,6 +1,6 @@
-import perfectionist from 'eslint-plugin-perfectionist';
 import eslintPluginAstro from 'eslint-plugin-astro';
 const jsxA11y = require('eslint-plugin-jsx-a11y');
+import perfectionist from 'eslint-plugin-perfectionist';
 
 export default [
 	...eslintPluginAstro.configs.recommended,

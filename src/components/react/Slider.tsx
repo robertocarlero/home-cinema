@@ -17,7 +17,7 @@ export interface SlideData {
  * Props for the Slider component
  */
 interface SliderProps {
-	slides: SlideData[];
+	slides: readonly SlideData[];
 	className?: string;
 }
 

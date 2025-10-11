@@ -4,9 +4,10 @@
  * Highlights quantitative achievements and benefits.
  */
 
-import { HOME_CLAIMS_SECTION } from '@/constants/ui_texts';
-import { Button } from '@/components/ui/button';
 import { ArrowUpRight } from 'lucide-react';
+
+import { Button } from '@/components/ui/button';
+import { HOME_CLAIMS_SECTION } from '@/constants/ui_texts';
 
 export interface Props {
 	className?: string;
@@ -40,7 +41,7 @@ const { className = '' } = Astro.props;
 		}
 	</div>
 
-	<Button variant="link" className="text-neutral-500">
+	<Button className="text-neutral-500" variant="link">
 		{HOME_CLAIMS_SECTION.buttonText}
 		<ArrowUpRight className="w-4 h-4" />
 	</Button>
