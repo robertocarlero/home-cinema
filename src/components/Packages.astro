@@ -1,0 +1,102 @@
+---
+/**
+ * Packages section component for the Home Cinema application.
+ * Displays curated home cinema packages with features and pricing options.
+ */
+
+import { HOME_PACKAGES_SECTION } from '@/constants/ui_texts';
+import { Button } from '@/components/ui/button';
+import { Users, MonitorSpeaker, Star } from 'lucide-react';
+
+export interface Props {
+	className?: string;
+}
+
+const { className = '' } = Astro.props;
+
+// Icon mapping for the packages
+const iconMap = {
+	Users,
+	MonitorSpeaker,
+	Star,
+} as const;
+---
+
+<section
+	class={`flex flex-col items-center justify-center gap-[100px] px-5 py-[100px] bg-black ${className}`}
+>
+	<h2 class="text-white text-3xl font-bold">
+		{HOME_PACKAGES_SECTION.title}
+	</h2>
+
+	<div
+		class="flex max-w-5xl items-stretch w-full border-2 border-neutral-900 rounded"
+	>
+		{
+			HOME_PACKAGES_SECTION.packages.map((pkg, index) => {
+				const IconComponent = iconMap[pkg.icon as keyof typeof iconMap];
+				const isMid = index === 1;
+
+				return (
+					<div
+						class={`relative flex-1 border-neutral-900 ${
+							isMid ? 'border-x-2 border-neutral-900' : ''
+						}`}
+					>
+						{pkg.showBadge && (
+							<div class="absolute top-[-15px] left-1/2 -translate-x-1/2 bg-neutral-50 text-neutral-900 border-2 border-neutral-900 rounded-full px-4 py-2 font-small">
+								Most Popular
+							</div>
+						)}
+
+						<div class="flex flex-col items-center justify-between px-5 py-[100px] h-full">
+							<div class="flex flex-col items-center gap-[50px] w-full">
+								<div class="flex w-[100px] h-auto items-center justify-center gap-2.5 px-0 py-2.5 bg-black rounded-[1000px] overflow-hidden border border-solid border-neutral-500 shadow-[0px_0px_5px_10px_#ffffff17] opacity-60">
+									<IconComponent className="w-8 h-8" />
+								</div>
+
+								<div class="flex flex-col items-center justify-center gap-2.5 w-full">
+									<h3 class="text-white text-xl font-bold">
+										{pkg.title}
+									</h3>
+
+									<p class="text-white">{pkg.subtitle}</p>
+								</div>
+
+								<p class="text-neutral-500 w-full">
+									{pkg.description}
+								</p>
+
+								<div class="flex items-center justify-center gap-2.5 px-0 py-4 w-full border-t border-neutral-900">
+									<div class="flex-1 text-sm text-white">
+										{pkg.features.map(
+											(feature, featureIndex) => (
+												<span>
+													{feature}
+													{featureIndex <
+														pkg.features.length -
+															1 && <br />}
+												</span>
+											),
+										)}
+									</div>
+								</div>
+							</div>
+
+							<Button
+								variant={pkg.buttonVariant}
+								className="w-full rounded-md px-4 py-2 font-body-medium"
+							>
+								{pkg.buttonText}
+							</Button>
+						</div>
+					</div>
+				);
+			})
+		}
+	</div>
+
+	<p class="font-small text-neutral-500">
+		{HOME_PACKAGES_SECTION.description}
+	</p>
+</section>

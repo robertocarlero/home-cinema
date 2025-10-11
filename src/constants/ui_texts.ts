@@ -72,3 +72,64 @@ export const HOME_CLAIMS_SECTION = {
 	],
 	buttonText: 'Get Your Free Custom Home Cinema Quote Today',
 } as const;
+
+export const HOME_PACKAGES_SECTION = {
+	title: 'Curated Packages',
+	description:
+		"Not sure which package fits your space? We'll build a custom scope for your room and budget.",
+	packages: [
+		{
+			title: 'Essential',
+			subtitle: '(Starter)',
+			description:
+				'Immersive 3D audio, premium AVR/processor, bass management, acoustic treatment, lighting control, refined finishes.',
+			features: [
+				'4K Projector or Premium TV',
+				'Discreet Speaker System',
+				'Clean Cable Management',
+				'Smart Control Integration',
+				'Professional Installation',
+			],
+			buttonText: 'Start with Essential',
+			buttonVariant: 'outline' as const,
+			showBadge: false,
+			icon: 'Users',
+		},
+		{
+			title: 'Signature Dolby Atmos',
+			subtitle: '(Most Popular)',
+			description:
+				'Immersive 3D audio, premium AVR/processor, bass management, acoustic treatment, lighting control, refined finishes.',
+			features: [
+				'Dolby Atmos 3D Audio',
+				'Premium AVR/Processor',
+				'Acoustic Treatment',
+				'Bass Management System',
+				'Lighting Control',
+				'Refined Finishes',
+			],
+			buttonText: 'Upgrade to Dolby Atmos',
+			buttonVariant: 'default' as const,
+			showBadge: true,
+			icon: 'MonitorSpeaker',
+		},
+		{
+			title: 'Elite Private Cinema',
+			subtitle: '(Flagship)',
+			description:
+				'Immersive 3D audio, premium AVR/processor, bass management, acoustic treatment, lighting control, refined finishes.',
+			features: [
+				'Dedicated Theater Room',
+				'Custom Premium Seating',
+				'Star Ceiling Lighting',
+				'Reference-Grade Calibration',
+				'Showpiece Design',
+				'Complete Room Transformation',
+			],
+			buttonText: 'Transform My Room',
+			buttonVariant: 'outline' as const,
+			showBadge: false,
+			icon: 'Star',
+		},
+	],
+} as const;
