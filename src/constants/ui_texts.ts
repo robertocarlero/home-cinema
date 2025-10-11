@@ -73,6 +73,30 @@ export const HOME_CLAIMS_SECTION = {
 	buttonText: 'Get Your Free Custom Home Cinema Quote Today',
 } as const;
 
+export const HOME_BLOCKS_SECTION = {
+	title: 'Our home cinema design is guided by <strong class="text-white">immersion</strong>, <strong class="text-white">comfort</strong>, and <strong class="text-white">innovation</strong>.',
+	features: [
+		{
+			title: 'Immersion',
+			description:
+				'Feel the action with Dolby Atmos sound and cinematic visuals.',
+			icon: 'Speaker',
+		},
+		{
+			title: 'Comfort',
+			description:
+				'Custom seating, acoustics, and lighting made for your lifestyle.',
+			icon: 'Armchair',
+		},
+		{
+			title: 'Innovation',
+			description:
+				'Smart home integration for seamless control and endless entertainment.',
+			icon: 'Lightbulb',
+		},
+	],
+} as const;
+
 export const HOME_PACKAGES_SECTION = {
 	title: 'Curated Packages',
 	description:

@@ -4,6 +4,7 @@
  * Features the main hero section with cinematic background and call-to-action.
  */
 
+import Blocks from '@/components/Blocks.astro';
 import ClaimsSection from '@/components/ClaimsSection.astro';
 import Hero from '@/components/Hero.astro';
 import Layout from '@/components/layouts/Layout.astro';
@@ -11,7 +12,7 @@ import Packages from '@/components/Packages.astro';
 import ProcessSection from '@/components/ProcessSection.astro';
 ---
 
-<Layout
+<Layout 
 	description="From design to setup, we create tailored home theater experiences that fit your lifestyle."
 	theme="dark"
 	title="Home Cinema in Dallas - Custom Home Theater Solutions"
@@ -20,4 +21,5 @@ import ProcessSection from '@/components/ProcessSection.astro';
 	<ProcessSection />
 	<ClaimsSection />
 	<Packages />
+	<Blocks />
 </Layout>

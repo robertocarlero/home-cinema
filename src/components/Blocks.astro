@@ -1,0 +1,56 @@
+---
+/**
+ * Blocks section component for the Home Cinema application.
+ * Features three main benefits: immersion, comfort, and innovation.
+ */
+
+import { Armchair, Lightbulb, Speaker, type LucideIcon } from 'lucide-react';
+
+import { HOME_BLOCKS_SECTION } from '@/constants/ui_texts';
+
+export interface Props {
+	className?: string;
+}
+
+const { className = '' } = Astro.props;
+
+// Map icon strings to Lucide React components
+const iconMap: Record<string, LucideIcon> = {
+	Speaker,
+	Armchair,
+	Lightbulb,
+};
+
+const featureCards = HOME_BLOCKS_SECTION.features.map((feature) => ({
+	...feature,
+	icon: iconMap[feature.icon],
+}));
+---
+
+<section class={`flex flex-col items-center justify-center gap-24 px-4 py-24 bg-black ${className}`}>
+	<h2 class="text-3xl w-full max-w-3xl font-bold text-center px-4 text-neutral-500" set:html={HOME_BLOCKS_SECTION.title}></h2>
+
+	<div class="flex max-w-5xl items-start gap-5 w-full flex-wrap px-4">
+		{featureCards.map((feature) => {
+			const IconComponent = feature.icon;
+			return (
+				<div
+					class="flex-1 rounded-[6px] border border-solid border-neutral-50 bg-transparent p-5 flex items-center gap-2.5"
+				>
+					<IconComponent
+						className="w-14 h-14 text-neutral-50 flex-shrink-0"
+						strokeWidth={1.5}
+					/>
+					<div class="flex flex-col items-start gap-2.5 flex-1">
+						<h3 class="w-fit font-h-3 font-normal text-[24px] leading-[32px] tracking-[-0.144px] text-neutral-50 whitespace-nowrap text-center">
+							{feature.title}
+						</h3>
+						<p class="self-stretch font-detail font-medium text-[12px] leading-[20px] tracking-[0px] text-neutral-500">
+							{feature.description}
+						</p>
+					</div>
+				</div>
+			);
+		})}
+	</div>
+</section>
