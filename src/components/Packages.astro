@@ -24,14 +24,14 @@ const iconMap = {
 ---
 
 <section
-	class={`flex flex-col items-center justify-center gap-24 px-5 py-24 bg-black ${className}`}
+	class={`flex flex-col items-center justify-center gap-24 px-5 md:px-24 lg:px-4 py-24 bg-black ${className}`}
 >
-	<h2 class="text-white text-3xl font-bold">
+	<h2 class="text-white  text-2xl sm:text-3xl lg:text-4xl font-bold">
 		{HOME_PACKAGES_SECTION.title}
 	</h2>
 
 	<div
-		class="flex max-w-5xl items-stretch w-full border-2 border-neutral-900 rounded"
+		class="flex flex-col lg:flex-row max-w-5xl items-stretch w-full border-2 border-neutral-900 rounded"
 	>
 		{
 			HOME_PACKAGES_SECTION.packages.map((pkg, index) => {
@@ -41,23 +41,23 @@ const iconMap = {
 				return (
 					<div
 						class={`relative flex-1 border-neutral-900 ${
-							isMid ? 'border-x-2 border-neutral-900' : ''
+							isMid ? 'border-y-2 lg:border-y-none lg:border-x-2 border-neutral-900' : ''
 						}`}
 					>
 						{pkg.showBadge && (
-							<div class="absolute top-[-15px] left-1/2 -translate-x-1/2 bg-neutral-50 text-neutral-900 border-2 border-neutral-900 rounded-full px-4 py-2 font-small">
+							<div class="min-w-36 text-center absolute top-[-15px] left-1/2 -translate-x-1/2 bg-neutral-50 text-neutral-900 border-2 border-neutral-900 rounded-full px-4 py-2 font-sm">
 								Most Popular
 							</div>
 						)}
 
-						<div class="flex flex-col items-center justify-between px-5 py-24 h-full">
-							<div class="flex flex-col items-center gap-14 w-full">
+						<div class="flex flex-col items-center justify-between px-5 py-12 lg:py-24 h-full">
+							<div class="flex flex-col items-center gap-8 lg:gap-14 w-full">
 								<div class="flex w-24 h-auto items-center justify-center gap-2.5 px-0 py-2.5 bg-black rounded-[1000px] overflow-hidden border border-solid border-neutral-500 shadow-[0px_0px_5px_10px_#ffffff17] opacity-60">
 									<IconComponent className="w-8 h-8" />
 								</div>
 
 								<div class="flex flex-col items-center justify-center gap-2.5 w-full">
-									<h3 class="text-white text-xl font-bold">
+									<h3 class="text-center text-white text-xl sm:text-2xl font-bold">
 										{pkg.title}
 									</h3>
 
@@ -97,7 +97,7 @@ const iconMap = {
 		}
 	</div>
 
-	<p class="font-small text-neutral-500">
+	<p class="text-sm text-neutral-500 text-center">
 		{HOME_PACKAGES_SECTION.description}
 	</p>
 </section>

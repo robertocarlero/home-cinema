@@ -17,23 +17,23 @@ const { className = '' } = Astro.props;
 ---
 
 <section
-	class={`flex flex-col items-center justify-center gap-14 sm:gap-24 px-0 py-14 sm:py-24 bg-black ${className}`}
+	class={`flex flex-col items-center justify-center gap-24 px-0 py-14 sm:py-24 bg-black ${className}`}
 >
-	<div class="flex flex-col sm:flex-row items-center justify-center w-full">
+	<div class="flex flex-col sm:flex-row items-start justify-center w-full">
 		{
 			HOME_CLAIMS_SECTION.claims.map((claim) => (
 				<div
-					class={`flex flex-col w-full sm:w-xs items-center justify-center gap-2 px-5 py-6 sm:py-14 ${
+					class={`flex flex-col w-full sm:w-xs justify-center gap-2 px-5 py-6 sm:py-14 ${
 						claim.hasBorder
 							? 'border-r-2 border-l-2 sm:border-r-2 sm:border-l-2 border-neutral-900'
 							: ''
 					}`}
 				>
-					<h2 class="mt-[-2px] text-white text-4xl sm:text-5xl font-bold">
+					<h2 class="text-center text-white text-3xl lg:text-5xl font-bold">
 						{claim.value}
 					</h2>
 
-					<p class="text-neutral-500 text-center sm:text-lg">
+					<p class="text-neutral-500 text-center text-lg">
 						{claim.description}
 					</p>
 				</div>

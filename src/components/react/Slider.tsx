@@ -52,7 +52,7 @@ export function Slider({ slides, className }: SliderProps) {
 			{/* Slider Container */}
 			<div className="relative overflow-hidden rounded-lg ">
 				<div
-					className="flex transition-transform duration-300 ease-in-out gap-6"
+					className="flex transition-transform duration-300 ease-in-out gap-4 sm:gap-8"
 					style={{
 						transform: `translateX(calc(-${currentSlide * 50}% - ${
 							currentSlide * 1.5
@@ -63,8 +63,8 @@ export function Slider({ slides, className }: SliderProps) {
 					}}
 				>
 					{slides.map((slide, index) => (
-						<div key={index} className="w-1/2 flex-shrink-0">
-							<div className="flex flex-col lg:flex-row rounded-lg overflow-hidden border border-neutral-900">
+						<div key={index} className="w-1/2  flex-shrink-0">
+							<div className="flex flex-col lg:flex-row rounded-lg overflow-hidden border border-neutral-900 h-full">
 								{/* Image Section */}
 								<div className="lg:w-1/2 relative">
 									<img
@@ -75,8 +75,8 @@ export function Slider({ slides, className }: SliderProps) {
 								</div>
 
 								{/* Content Section */}
-								<div className="lg:w-1/2 p-8 flex flex-col justify-center">
-									<h3 className="text-2xl font-bold text-white mb-4">
+								<div className="lg:w-1/2 p-4 sm:p-8 flex flex-col justify-center">
+									<h3 className="text-xl sm:text-2xl font-bold text-white mb-4">
 										{slide.title}
 									</h3>
 									<p className="text-neutral-500 mb-6 leading-relaxed">

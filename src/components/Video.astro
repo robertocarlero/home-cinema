@@ -15,7 +15,7 @@ export interface Props {
 const { className = '' } = Astro.props;
 ---
 
-<section class={`relative flex items-center aspect-video bg-black overflow-hidden ${className}`}>
+<section class={`relative flex items-center aspect-square sm:aspect-video bg-black overflow-hidden ${className}`}>
   <!-- Background Video -->
   <video
     autoplay
@@ -36,16 +36,16 @@ const { className = '' } = Astro.props;
 	>
 
   <!-- Content Container -->
-  <div class="container relative flex flex-col justify-center gap-12 px-14 h-full">
+  <div class="container relative flex flex-col justify-center px-4 sm:px-8 gap-12 lg:px-14 h-full">
     <!-- Text Content -->
-	 <div class="bg-black w-2xl h-96 absolute left-0 blur-3xl rounded-full" />
-    <div class="z-10 exclude-overlay max-w-lg cursor-auto flex flex-col justify-center gap-14">
-      <h2 class="text-5xl text-white font-bold">
+	 <div class=" bg-black/50 lg:bg-bg-black w-2xl h-96 absolute left-0 blur-3xl rounded-full" />
+    <div class="z-10 exclude-overlay w-full sm:max-w-lg cursor-auto flex flex-col justify-center gap-6 sm:gap-8 lg:gap-14">
+      <h2 class="text-center sm:text-left  text-2xl sm:text-3xl lg:text-4xl text-white font-bold">
         Home Cinema.
         <br />
         All-time immersive.
       </h2>
-      <p class=" text-2xl font-bold">
+      <p class="text-center sm:text-left sm:text-xl lg:text-2xl font-bold">
         <span class="text-neutral-500">
           Our professional installation transforms your living space into a
           private cinema. From Dolby Atmos sound to 4K/8K projectors and

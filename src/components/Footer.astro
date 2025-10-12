@@ -18,9 +18,9 @@ const iconMap = {
 } as const;
 ---
 
-<footer class="flex flex-col items-center justify-center gap-8 pt-12 pb-0 px-12 relative bg-black">
+<footer class="flex flex-col items-center justify-center gap-8 pt-12 pb-0 px-4 sm:px-12 relative bg-black">
 	<div class="flex items-center justify-between relative w-full">
-		<address class="text-neutral-500 text-lg font-semibold">
+		<address class="text-neutral-500 sm:text-lg font-semibold">
 			{FOOTER_INFO.address}
 			<br />
 			<a href="tel:{FOOTER_INFO.phone}">{FOOTER_INFO.phone}</a>
@@ -36,10 +36,10 @@ const iconMap = {
 				return (
 					<a
 						aria-label={social.label}
-						class="flex w-12 h-12 items-center justify-center gap-2 rounded-full bg-neutral-900 border border-neutral-500 opacity-60 hover:opacity-100 transition-opacity"
+						class="flex w-8 h-8 sm:w-12 sm:h-12 items-center justify-center gap-2 rounded-full bg-neutral-900 border border-neutral-500 opacity-60 hover:opacity-100 transition-opacity"
 						href={social.url}
 					>
-						<IconComponent className="w-6 h-6 text-neutral-400" />
+						<IconComponent className="w-4 h-4 sm:w-6 sm:h-6 text-neutral-400" />
 					</a>
 				);
 			})}

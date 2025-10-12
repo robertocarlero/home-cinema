@@ -32,8 +32,8 @@ const id = Math.random().toString(36).substring(2, 15);
 		width,
 		height,
 		vignetteIntensity: 2,
-		spotX: '150px',
-		spotY: '150px',
+		spotX: '0px',
+		spotY: '0px',
 	}}
 >
 	.vignette-container {
@@ -99,6 +99,9 @@ const id = Math.random().toString(36).substring(2, 15);
 
 			vignette.style.setProperty('--mouse-x', xPercent + '%');
 			vignette.style.setProperty('--mouse-y', yPercent + '%');
+
+			vignette.style.setProperty('--spotX', '150px');
+			vignette.style.setProperty('--spotY', '150px');
 		});
 
 		exclude?.forEach((item) => {
@@ -109,6 +112,9 @@ const id = Math.random().toString(36).substring(2, 15);
 			item?.addEventListener('mouseleave', () => {
 				vignette.style.setProperty('--spotX', '150px');
 				vignette.style.setProperty('--spotY', '150px');
+			});
+			item?.addEventListener('mousemove', (e) => {
+				e.stopPropagation();
 			});
 		});
 

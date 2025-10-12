@@ -12,6 +12,7 @@ const buttons = [
   {
     text: "Chat on WhatsApp",
     variant: "outline" as const,
+	className: "hidden md:flex",
   },
   {
     text: "Call now",
@@ -21,9 +22,9 @@ const buttons = [
 ---
 
 <section class="flex flex-col items-center justify-center gap-2.5 px-0 py-24 bg-neutral-50">
-  <h1 class="font-bold text-black text-4xl">
+  <h2 class="font-bold text-black text-2xl sm:text-3xl lg:text-4xl text-center">
     Ready to build your private cinema?
-  </h1>
+  </h2>
 
   <p class="font-medium text-neutral-500 text-lg text-center">
     Book your free consultation and we'll contact you within 24 hours.
@@ -31,7 +32,7 @@ const buttons = [
 
   <div class="light flex items-start gap-4 mt-6 text-black">
     {buttons.map((button) => (
-      <Button variant={button.variant}>
+      <Button className={button.className} variant={button.variant}>
         {button.text}
       </Button>
     ))}

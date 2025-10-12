@@ -26,14 +26,16 @@ const { className = '' } = Astro.props;
 	<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 		<div class="flex items-center justify-between h-16">
 			<!-- Logo Section -->
-			<a class="flex items-center space-x-3" href={HOME_ROUTE}>
-				<!-- Logo Image -->
-				<img
-					alt="Home Cinema Logo"
-					class="h-8 object-contain"
-					src={logo.src}
-				/>
-			</a>
+			 <div class="w-56 lg:w-72">
+				 <a class="flex items-center w-fit" href={HOME_ROUTE}>
+					 <!-- Logo Image -->
+					 <img
+						 alt="Home Cinema Logo"
+						 class="h-8 object-contain"
+						 src={logo.src}
+					 />
+				 </a>
+			 </div>
 
 			<!-- Navigation Menu -->
 			<nav class="hidden md:flex items-center space-x-8">
@@ -50,7 +52,7 @@ const { className = '' } = Astro.props;
 			</nav>
 
 			<!-- Right Section -->
-			<div class="flex items-center space-x-4">
+			<div class="w-56 lg:w-72 flex items-center justify-end gap-2 lg:gap-4">
 				<!-- WhatsApp Section -->
 				<a
 					href={WHATSAPP_ROUTE}
@@ -59,23 +61,23 @@ const { className = '' } = Astro.props;
 				>
 					<Button variant="ghost">
 						<WhatsAppIcon size={20} />
-						WhatsApp
+						<span class="hidden lg:block">WhatsApp</span>
 					</Button>
 				</a>
 
 				<!-- CTA Button -->
-				<Button>Get Free Consultation</Button>
+				<Button className="hidden md:flex">Get Free Consultation</Button>
+				<Button
+					aria-label="Toggle menu"
+					className="md:hidden text-white hover:bg-gray-800"
+					size="icon-sm"
+					variant="ghost"
+				>
+					<Menu className="w-6 h-6" />
+				</Button>
 			</div>
 
 			<!-- Mobile Menu Button -->
-			<Button
-				aria-label="Toggle menu"
-				className="md:hidden text-white hover:bg-gray-800"
-				size="icon-sm"
-				variant="ghost"
-			>
-				<Menu className="w-6 h-6" />
-			</Button>
 		</div>
 	</div>
 </header>
