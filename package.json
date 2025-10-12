@@ -11,6 +11,7 @@
 		"lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx,.astro --fix"
 	},
 	"dependencies": {
+		"@astrojs/netlify": "^6.5.12",
 		"@astrojs/react": "^4.4.0",
 		"@radix-ui/react-slot": "^1.2.3",
 		"@tailwindcss/vite": "^4.1.14",
