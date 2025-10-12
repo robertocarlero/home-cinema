@@ -1,0 +1,19 @@
+{
+	"geolocation": {
+		"data": {
+			"city": "Barquisimeto",
+			"country": {
+				"code": "VE",
+				"name": "Venezuela"
+			},
+			"subdivision": {
+				"code": "K",
+				"name": "Lara"
+			},
+			"timezone": "America/Caracas",
+			"latitude": 10.0664,
+			"longitude": -69.3586
+		},
+		"timestamp": 1760232849938
+	}
+}

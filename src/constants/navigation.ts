@@ -3,7 +3,7 @@
  * Centralizes all navigation paths and labels for consistency.
  */
 
-import { NAVIGATION } from './ui_texts';
+import { NAVIGATION } from './ui-texts/global';
 
 export interface NavigationRoute {
 	href: string;

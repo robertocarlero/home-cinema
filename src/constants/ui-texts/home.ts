@@ -1,6 +1,6 @@
 /**
- * UI texts and content constants for the Home Cinema application.
- * Centralizes all user-facing strings for consistency and easy maintenance.
+ * Home page specific UI texts and content constants.
+ * Contains all user-facing strings specific to the home page.
  */
 
 import step1Image from '@/assets/images/step1.png';
@@ -13,13 +13,6 @@ export const HOME_HERO_SECTION = {
 		'From design to setup, we create tailored home theater experiences that fit your lifestyle.',
 	primaryButton: 'Request your free consultation',
 	secondaryButton: 'See projects',
-} as const;
-
-export const NAVIGATION = {
-	home: 'Home',
-	services: 'Services',
-	projects: 'Projects',
-	contact: 'Contact',
 } as const;
 
 export const HOME_PROCESS_SECTION = {
@@ -94,17 +87,6 @@ export const HOME_BLOCKS_SECTION = {
 				'Smart home integration for seamless control and endless entertainment.',
 			icon: 'Lightbulb',
 		},
-	],
-} as const;
-
-export const FOOTER_INFO = {
-	address: 'DFW Metroplex, Texas',
-	phone: '(469) 412-5478',
-	copyright: `© ${new Date().getFullYear()} Home Cinema Solutions, All Rights Reserved.`,
-	socialMediaLinks: [
-		{ name: 'Instagram', label: 'Instagram', url: '#' },
-		{ name: 'Youtube', label: 'YouTube', url: '#' },
-		{ name: 'Facebook', label: 'Facebook', url: '#' },
 	],
 } as const;
 
