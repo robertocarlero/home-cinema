@@ -1,6 +1,7 @@
 ---
 export interface Props {
-	imageUrl?: string;
+	imageUrl: string;
+	mobileImageUrl?: string;
 	width?: string;
 	height?: string;
 	vignetteIntensity?: number;
@@ -11,6 +12,7 @@ export interface Props {
 
 const {
 	imageUrl = '',
+	mobileImageUrl = '',
 	width = '800px',
 	height = '600px',
 	className = '',
@@ -20,7 +22,7 @@ const id = Math.random().toString(36).substring(2, 15);
 ---
 
 <div class={`vignette-container ${className}`} id={id}>
-	<div class="background-image"></div>
+	<div class="background-image" id={`bg-${id}`}></div>
 	<div class="vignette-overlay" id={`vignette-${id}`}>
 		<slot />
 	</div>
@@ -29,6 +31,7 @@ const id = Math.random().toString(36).substring(2, 15);
 <style
 	define:vars={{
 		bgImage: `url("${imageUrl}")`,
+		mobileBgImage: `url("${mobileImageUrl || imageUrl}")`,
 		width,
 		height,
 		vignetteIntensity: 2,
@@ -78,12 +81,29 @@ const id = Math.random().toString(36).substring(2, 15);
 			rgba(0, 0, 0, 1) 100%
 		);
 	}
+
+	
+	@media (max-width: 767px) {
+		.background-image {
+			background-image: var(--mobileBgImage);
+		}
+
+		.vignette-overlay {
+			background: radial-gradient(
+			ellipse at center,
+			rgba(0, 0, 0, 0) 0%,
+			rgba(0, 0, 0, calc(var(--vignetteIntensity) * 0.3)) 70%,
+			rgba(0, 0, 0, calc(var(--vignetteIntensity) * 0.7)) 80%,
+			rgba(0, 0, 0, var(--vignetteIntensity)) 100%
+		);
+		}
+	}
 </style>
 
 <script define:vars={{ id }} is:inline>
 	function initVignetteEffect() {
 		const vignette = document.getElementById(`vignette-${id}`);
-		const container = document.querySelector(`.vignette-container#${id}`);
+		const container = document.getElementById(id);
 		const exclude = container?.querySelectorAll('.exclude-overlay');
 
 		if (!vignette || !container) return;

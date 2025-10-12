@@ -4,7 +4,8 @@
  * Features a cinematic background with vignette overlay effect and call-to-action buttons.
  */
 
-import image from '@/assets/hero-background.jpg';
+import desktopImage from '@/assets/hero-background.jpg';
+import mobileImage from '@/assets/hero-mobile.jpg';
 import VignetteOverlay from '@/components/VignetteOverlay.astro';
 import { HOME_HERO_SECTION } from '@/constants/ui-texts/home';
 
@@ -22,7 +23,8 @@ const { className = '' } = Astro.props;
 	<VignetteOverlay
 		className="absolute top-0 left-0 w-full h-full z-10"
 		height="100vh"
-		imageUrl={image?.src}
+		imageUrl={desktopImage?.src}
+		mobileImageUrl={mobileImage?.src}
 		width="100vw"
 	>
 		<div
@@ -32,7 +34,7 @@ const { className = '' } = Astro.props;
 				class="exclude-overlay cursor-auto text-center w-fit h-fit px-8"
 			>
 				<h1
-					class="text-3xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight drop-shadow-lg"
+					class="mx-auto text-5xl max-w-[350px] sm:max-w-fit lg:text-6xl font-bold text-white leading-tight drop-shadow-lg"
 				>
 					{HOME_HERO_SECTION.title}
 				</h1>
