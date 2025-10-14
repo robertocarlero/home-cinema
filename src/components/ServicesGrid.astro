@@ -1,0 +1,155 @@
+---
+import {
+	Monitor,
+	Clapperboard,
+	Ruler,
+	Cable,
+	Tablet,
+	MonitorSpeaker,
+	Shield,
+	Speaker,
+} from 'lucide-react';
+
+const services = [
+	{
+		icon: Monitor,
+		title: 'Home Cinema Designs',
+		description: [
+			{ text: 'Custom ', highlight: false },
+			{ text: 'home theater design', highlight: true },
+			{
+				text: ' and installation for any budget. We make your space the perfect place for movies, sports, and more.',
+				highlight: false,
+			},
+		],
+	},
+	{
+		icon: Clapperboard,
+		title: 'Dream Weaver',
+		description: [
+			{
+				text: 'Convert an existing room or build from scratch. We turn your vision of a ',
+				highlight: false,
+			},
+			{ text: 'private cinema', highlight: true },
+			{ text: ' into reality.', highlight: false },
+		],
+	},
+	{
+		icon: Ruler,
+		title: 'Design & Planning',
+		description: [
+			{ text: 'Our team of ', highlight: false },
+			{ text: 'designers and AV experts', highlight: true },
+			{
+				text: ' creates detailed plans and strategies for flawless results.',
+				highlight: false,
+			},
+		],
+	},
+	{
+		icon: Cable,
+		title: 'Wire Management',
+		description: [
+			{
+				text: 'Hide cables with clean in-wall solutions or discreet alternatives. Sleek, clutter-free, and ',
+				highlight: false,
+			},
+			{ text: 'professional', highlight: true },
+			{ text: '.', highlight: false },
+		],
+	},
+	{
+		icon: Tablet,
+		title: 'Smart Control & Remotes',
+		description: [
+			{
+				text: 'We program remotes, lighting, and smart devices so your ',
+				highlight: false,
+			},
+			{ text: 'home cinema runs seamlessly', highlight: true },
+			{ text: '.', highlight: false },
+		],
+	},
+	{
+		icon: MonitorSpeaker,
+		title: 'System Optimization',
+		description: [
+			{
+				text: 'Already own equipment? We calibrate and optimize it for ',
+				highlight: false,
+			},
+			{ text: 'peak sound', highlight: true },
+			{ text: ' and ', highlight: false },
+			{ text: 'picture quality', highlight: true },
+			{ text: '.', highlight: false },
+		],
+	},
+	{
+		icon: Shield,
+		title: 'The Build',
+		description: [
+			{
+				text: 'From start to finish, we handle every detail of your ',
+				highlight: false,
+			},
+			{ text: 'home theater installation', highlight: true },
+			{ text: '.', highlight: false },
+		],
+	},
+	{
+		icon: Speaker,
+		title: 'Acoustic Panels',
+		description: [
+			{ text: 'Stylish, custom ', highlight: false },
+			{ text: 'acoustic panels', highlight: true },
+			{
+				text: ' that improve sound and enhance your décor.',
+				highlight: false,
+			},
+		],
+	},
+];
+---
+
+<section class="w-full items-center gap-24 px-2 relative bg-black">
+	<div
+		class="relative w-full max-w-5xl mx-auto grid sm:grid-cols-3 py-24 gap-8 sm:gap-y-24"
+	>
+		<div
+			class="absolute grid grid-rows-1 grid-cols-2 sm:grid-cols-3 rounded-t border border-neutral-900 w-full h-full"
+		>
+			<div></div>
+
+			<div class="border-l sm:border-r border-neutral-900"></div>
+			<div></div>
+		</div>
+		{
+			services.map(({ icon: Icon, title, description }) => (
+				<article class="z-10 flex flex-row sm:flex-col sm:items-center gap-4 w-full max-w-5xl p-4">
+					<div class="mt-1 sm:mt-0 flex items-center justify-center w-10 h-10 sm:w-14 sm:h-14 shrink-0 bg-black rounded-full border border-neutral-500 shadow-[0_0_8px_10px_rgba(255,255,255,0.07)]">
+						<Icon className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
+					</div>
+
+					<div class="flex flex-col sm:items-center gap-2 sm:gap-4">
+						<h3 class="sm:text-center font-semibold text-lg sm:text-2xl text-white">
+							{title}
+						</h3>
+
+						<p class="sm:text-center text-neutral-500 text-sm sm:text-base">
+							{description.map((segment, i) =>
+								segment.highlight ? (
+									<strong class="text-white">
+										{segment.text}
+									</strong>
+								) : (
+									segment.text
+								),
+							)}
+						</p>
+					</div>
+				</article>
+			))
+		}
+	</div>
+</section>
