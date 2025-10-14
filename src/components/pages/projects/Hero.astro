@@ -1,0 +1,50 @@
+---
+import heroVideo from '@/assets/videos/hero-projects.mp4';
+import { Button } from '@/components/ui/button';
+import { PROJECTS_HERO_SECTION } from '@/constants/ui-texts/projects';
+---
+
+<section
+	class="relative flex flex-col items-center justify-end w-screen h-screen px-0 py-12 overflow-hidden bg-black"
+>
+	<!-- Background video -->
+	<video
+		autoplay
+		class="absolute inset-0 w-full h-full object-cover"
+		loop
+		muted
+		playsinline
+	>
+		<source src={heroVideo} type="video/mp4" />
+		Your browser does not support the video tag.
+	</video>
+
+	<!-- Gradient overlay -->
+	<div
+		class="absolute inset-0 bg-gradient-to-b from-transparent via-black/60 to-black"
+	>
+	</div>
+
+	<!-- Content -->
+	<div
+		class="relative z-10 flex flex-col items-center text-center w-full max-w-2xl gap-8 px-4"
+	>
+		<div class="flex flex-col items-center justify-center gap-4">
+			<h1 class="text-3xl sm:text-5xl font-bold text-white">
+				{PROJECTS_HERO_SECTION.title}
+				<br />
+				{PROJECTS_HERO_SECTION.subtitle}
+			</h1>
+			<p class="text-base text-neutral-500 max-w-lg">
+				{PROJECTS_HERO_SECTION.description}
+			</p>
+		</div>
+
+		<div class="flex flex-wrap justify-center gap-6">
+			<Button>{PROJECTS_HERO_SECTION.primaryButton}</Button>
+			<Button variant="secondary"
+				>{PROJECTS_HERO_SECTION.secondaryButton}</Button
+			>
+		</div>
+	</div>
+</section>
