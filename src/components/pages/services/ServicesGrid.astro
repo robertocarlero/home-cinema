@@ -10,106 +10,27 @@ import {
 	Speaker,
 } from 'lucide-react';
 
-const services = [
-	{
-		icon: Monitor,
-		title: 'Home Cinema Designs',
-		description: [
-			{ text: 'Custom ', highlight: false },
-			{ text: 'home theater design', highlight: true },
-			{
-				text: ' and installation for any budget. We make your space the perfect place for movies, sports, and more.',
-				highlight: false,
-			},
-		],
-	},
-	{
-		icon: Clapperboard,
-		title: 'Dream Weaver',
-		description: [
-			{
-				text: 'Convert an existing room or build from scratch. We turn your vision of a ',
-				highlight: false,
-			},
-			{ text: 'private cinema', highlight: true },
-			{ text: ' into reality.', highlight: false },
-		],
-	},
-	{
-		icon: Ruler,
-		title: 'Design & Planning',
-		description: [
-			{ text: 'Our team of ', highlight: false },
-			{ text: 'designers and AV experts', highlight: true },
-			{
-				text: ' creates detailed plans and strategies for flawless results.',
-				highlight: false,
-			},
-		],
-	},
-	{
-		icon: Cable,
-		title: 'Wire Management',
-		description: [
-			{
-				text: 'Hide cables with clean in-wall solutions or discreet alternatives. Sleek, clutter-free, and ',
-				highlight: false,
-			},
-			{ text: 'professional', highlight: true },
-			{ text: '.', highlight: false },
-		],
-	},
-	{
-		icon: Tablet,
-		title: 'Smart Control & Remotes',
-		description: [
-			{
-				text: 'We program remotes, lighting, and smart devices so your ',
-				highlight: false,
-			},
-			{ text: 'home cinema runs seamlessly', highlight: true },
-			{ text: '.', highlight: false },
-		],
-	},
-	{
-		icon: MonitorSpeaker,
-		title: 'System Optimization',
-		description: [
-			{
-				text: 'Already own equipment? We calibrate and optimize it for ',
-				highlight: false,
-			},
-			{ text: 'peak sound', highlight: true },
-			{ text: ' and ', highlight: false },
-			{ text: 'picture quality', highlight: true },
-			{ text: '.', highlight: false },
-		],
-	},
-	{
-		icon: Shield,
-		title: 'The Build',
-		description: [
-			{
-				text: 'From start to finish, we handle every detail of your ',
-				highlight: false,
-			},
-			{ text: 'home theater installation', highlight: true },
-			{ text: '.', highlight: false },
-		],
-	},
-	{
-		icon: Speaker,
-		title: 'Acoustic Panels',
-		description: [
-			{ text: 'Stylish, custom ', highlight: false },
-			{ text: 'acoustic panels', highlight: true },
-			{
-				text: ' that improve sound and enhance your décor.',
-				highlight: false,
-			},
-		],
-	},
-];
+import { SERVICES_GRID_SECTION } from '@/constants/ui-texts/services';
+
+// Map service titles to their corresponding icons
+const getIconComponent = (title: string) => {
+	const iconMap: Record<string, any> = {
+		'Home Cinema Designs': Monitor,
+		'Dream Weaver': Clapperboard,
+		'Design & Planning': Ruler,
+		'Wire Management': Cable,
+		'Smart Control & Remotes': Tablet,
+		'System Optimization': MonitorSpeaker,
+		'The Build': Shield,
+		'Acoustic Panels': Speaker,
+	};
+	return iconMap[title] || Monitor;
+};
+
+const services = SERVICES_GRID_SECTION.services.map((service) => ({
+	icon: getIconComponent(service.title),
+	...service,
+}));
 ---
 
 <section class="w-full items-center gap-24 px-2 relative bg-black">

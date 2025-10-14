@@ -1,12 +1,13 @@
 ---
 import heroImage from '@/assets/images/hero-services.png';
 import { Button } from '@/components/ui/button';
+import { SERVICES_HERO_SECTION } from '@/constants/ui-texts/services';
 ---
 
 <section class="w-screen h-[80vh] overflow-hidden bg-black px-4 py-8">
 	<div class="w-full h-full max-w-5xl mx-auto relative">
 		<img
-			alt="Luxury home theater with ambient lighting"
+			alt={SERVICES_HERO_SECTION.heroImageAlt}
 			class="absolute w-full top-1/2 -translate-y-1/2 sm:right-0 sm:w-3/5 object-contain"
 			src={heroImage.src}
 			transition:name="hero-image"
@@ -25,19 +26,17 @@ import { Button } from '@/components/ui/button';
 				<h1
 					class="w-fit font-bold text-neutral-50 text-3xl sm:text-4xl lg:text-5xl"
 				>
-					Home Cinema Services
+					{SERVICES_HERO_SECTION.title}
 				</h1>
 
 				<p
 					class="text-lg sm:text-xl lg:text-2xl text-neutral-500 drop-shadow-sm font-bold"
 				>
-					Custom
-					<strong class="text-white">design & installation</strong>
-					for luxury home theaters in Dallas and premier suburbs.
+					{SERVICES_HERO_SECTION.subtitle}
 				</p>
 
 				<Button className="mt-4">
-					Request your free consultation
+					{SERVICES_HERO_SECTION.primaryButton}
 				</Button>
 			</div>
 		</div>
