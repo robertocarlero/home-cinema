@@ -1,0 +1,61 @@
+---
+import { Button } from '@/components/ui/button';
+---
+
+<section
+	class="flex flex-col items-center gap-2.5 bg-black text-neutral-50 px-2"
+>
+	<div
+		class="relative grid grid-cols-1 grid-rows-2 sm:grid-cols-3 sm:grid-rows-1 w-full max-w-5xl border border-t-0 border-neutral-900 rounded-b"
+	>
+		<!-- Decorative dashed columns -->
+		<div
+			class="w-full h-full absolute grid grid-cols-2 sm:grid-cols-3 grid-rows-2 sm:grid-rows-1"
+		>
+			<div
+				class="border-b border-neutral-900 border-dashed sm:border-b-0"
+			>
+			</div>
+			<div
+				class="border-l border-b border-neutral-900 border-dashed sm:border-b-0"
+			>
+			</div>
+			<div class="sm:hidden"></div>
+			<div class="border-l border-neutral-900 border-dashed"></div>
+		</div>
+
+		<!-- Left block -->
+		<div
+			class="col-span-2 relative z-10 flex flex-col items-center sm:items-start px-4 py-16 md:px-8"
+		>
+			<h2 class="text-2xl font-semibold text-zinc-50 text-center">
+				Ready to build your private cinema?{' '}
+			</h2>
+			<p
+				class="block text-neutral-400 text-lg font-normal text-center sm:text-left"
+			>
+				Book your free consultation and we'll contact you within 24
+				hours.
+			</p>
+
+			<div class="flex flex-wrap items-center gap-4 pt-4">
+				<Button>Request consultation</Button>
+				<Button variant="outline">Chat on WhatsApp</Button>
+			</div>
+		</div>
+
+		<!-- Right block -->
+		<div
+			class="col-span-1 z-10 flex flex-col items-center justify-center sm:items-start px-4 py-16 md:px-8 sm:justify-start gap-4"
+		>
+			<h2
+				class="text-lg font-semibold text-neutral-500 text-center sm:text-left"
+			>
+				<strong class="text-white">Partner with our team</strong>{' '}
+				for luxury residential projects.
+			</h2>
+
+			<Button variant="outline"> Start Your Partnership </Button>
+		</div>
+	</div>
+</section>
