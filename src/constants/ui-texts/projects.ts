@@ -12,3 +12,24 @@ export const PROJECTS_HERO_SECTION = {
 	secondaryButton: 'Chat on WhatsApp',
 	heroVideoAlt: 'Luxury home cinema projects showcase',
 } as const;
+
+export const PROJECTS_CLAIMS_SECTION = {
+	claims: [
+		{
+			value: '50+',
+			description: 'Luxury Installations',
+			hasBorder: false,
+		},
+		{
+			value: '10+',
+			description: 'Years Experience',
+			hasBorder: true,
+		},
+		{
+			value: '100%',
+			description: 'Client Satisfaction',
+			hasBorder: false,
+		},
+	],
+	buttonText: 'Get Your Free Custom Home Cinema Quote Today',
+} as const;

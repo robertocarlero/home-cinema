@@ -1,0 +1,48 @@
+---
+/**
+ * Claims section component for the Home Cinema application.
+ * Highlights quantitative achievements and benefits.
+ */
+
+import { ArrowUpRight } from 'lucide-react';
+
+import { Button } from '@/components/ui/button';
+import { PROJECTS_CLAIMS_SECTION } from '@/constants/ui-texts/projects';
+
+export interface Props {
+	className?: string;
+}
+
+const { className = '' } = Astro.props;
+---
+
+<section
+	class={`flex flex-col items-center justify-center gap-24 px-0 py-14 sm:py-24 bg-black ${className}`}
+>
+	<div class="flex flex-col sm:flex-row items-start justify-center w-full">
+		{
+			PROJECTS_CLAIMS_SECTION.claims.map((claim) => (
+				<div
+					class={`flex flex-col w-full sm:w-xs justify-center gap-2 px-5 py-6 sm:py-14 ${
+						claim.hasBorder
+							? 'sm:border-r-2 sm:border-l-2 border-neutral-900'
+							: ''
+					}`}
+				>
+					<h2 class="text-center text-white text-3xl lg:text-5xl font-bold">
+						{claim.value}
+					</h2>
+
+					<p class="text-neutral-500 text-center text-lg">
+						{claim.description}
+					</p>
+				</div>
+			))
+		}
+	</div>
+
+	<Button className="text-neutral-500" variant="link">
+		{PROJECTS_CLAIMS_SECTION.buttonText}
+		<ArrowUpRight className="w-4 h-4" />
+	</Button>
+</section>
