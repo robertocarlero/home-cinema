@@ -1,0 +1,45 @@
+---
+import heroImage from '@/assets/images/hero-services.png';
+import { Button } from '@/components/ui/button';
+---
+
+<section class="w-screen h-[80vh] overflow-hidden bg-black px-4 py-8">
+	<div class="w-full h-full max-w-5xl mx-auto relative">
+		<img
+			alt="Luxury home theater with ambient lighting"
+			class="absolute w-full top-1/2 -translate-y-1/2 sm:right-0 sm:w-3/5 object-contain"
+			src={heroImage.src}
+			transition:name="hero-image"
+		/>
+
+		<div
+			class="relative z-10 flex items-end justify-start sm:items-center h-full"
+		>
+			<div
+				class="hidden lg:block absolute blur-3xl w-full h-full bg-black/90 rounded-full max-w-2xl"
+			>
+			</div>
+			<div
+				class="mx-auto sm:mx-0 z-10 inline-flex flex-col items-center sm:items-start gap-4 max-w-sm lg:max-w-lg text-center sm:text-left"
+			>
+				<h1
+					class="w-fit font-bold text-neutral-50 text-3xl sm:text-4xl lg:text-5xl"
+				>
+					Home Cinema Services
+				</h1>
+
+				<p
+					class="text-lg sm:text-xl lg:text-2xl text-neutral-500 drop-shadow-sm font-bold"
+				>
+					Custom
+					<strong class="text-white">design & installation</strong>
+					for luxury home theaters in Dallas and premier suburbs.
+				</p>
+
+				<Button className="mt-4">
+					Request your free consultation
+				</Button>
+			</div>
+		</div>
+	</div>
+</section>
