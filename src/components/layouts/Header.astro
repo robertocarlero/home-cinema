@@ -22,8 +22,8 @@ export interface Props {
 const { className = '' } = Astro.props;
 ---
 
-<header class={`fixed top-0 z-50 bg-black/50 w-full ${className}`}>
-	<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+<header class={`fixed top-0 z-50 bg-black/50 w-full px-4 sm:px-6 lg:px-8 ${className}`}>
+	<div class="max-w-5xl mx-auto">
 		<div class="flex items-center justify-between h-16">
 			<!-- Logo Section -->
 			 <div class="w-56 lg:w-72">
@@ -67,17 +67,156 @@ const { className = '' } = Astro.props;
 
 				<!-- CTA Button -->
 				<Button className="hidden md:flex">Get Free Consultation</Button>
+
 				<Button
 					aria-label="Toggle menu"
 					className="md:hidden text-white hover:bg-gray-800"
+					id="mobile-menu-button"
 					size="icon-sm"
 					variant="ghost"
 				>
-					<Menu className="w-6 h-6" />
+					<Menu className="w-6 h-6" id="menu-icon" />
 				</Button>
 			</div>
 
 			<!-- Mobile Menu Button -->
 		</div>
 	</div>
+
+	<!-- Mobile Navigation Menu -->
+	<div
+		class="md:hidden fixed top-16 left-0 right-0 bg-black/95 backdrop-blur-sm border-t border-gray-800 transition-all duration-300 ease-in-out"
+		id="mobile-menu"
+		style="display: none;"
+	>
+		<div class="px-4 py-6 space-y-4">
+			{
+				NAVIGATION_ROUTES.map((route) => (
+					<a
+						class="block text-white text-lg font-medium hover:text-neutral-200 transition-colors py-2"
+						href={route.href}
+						onclick="closeMobileMenu()"
+					>
+						{route.label}
+					</a>
+				))
+			}
+
+			<!-- Mobile CTA Button -->
+			<div class="pt-4 border-t border-gray-800">
+				<a
+					class="block w-full bg-white text-black text-center py-3 px-4 rounded-md font-medium hover:bg-gray-100 transition-colors"
+					href="#"
+					onclick="closeMobileMenu()"
+				>
+					Get Free Consultation
+				</a>
+			</div>
+
+			<!-- Mobile WhatsApp Button -->
+			<div class="pt-2">
+				<a
+					class="flex items-center justify-center gap-2 text-white hover:text-neutral-200 transition-colors py-2"
+					href={WHATSAPP_ROUTE}
+					onclick="closeMobileMenu()"
+					rel="noopener noreferrer"
+					target="_blank"
+				>
+					<WhatsAppIcon size={20} />
+					<span>WhatsApp</span>
+				</a>
+			</div>
+		</div>
+	</div>
 </header>
+
+<script>
+	// Funcionalidad del menú móvil
+	let mobileMenuOpen = false;
+
+	function toggleMobileMenu() {
+		if (mobileMenuOpen) {
+			closeMobileMenu();
+		} else {
+			openMobileMenu();
+		}
+	}
+
+	function openMobileMenu() {
+		const mobileMenu = document.getElementById('mobile-menu') as HTMLElement;
+		const menuIcon = document.getElementById('menu-icon') as HTMLElement;
+
+		if (!mobileMenu || !menuIcon) return;
+
+		mobileMenu.style.display = 'block';
+		mobileMenu.style.opacity = '0';
+		mobileMenu.style.transform = 'translateY(-10px)';
+
+		// Trigger reflow
+		mobileMenu.offsetHeight;
+
+		mobileMenu.style.transition = 'opacity 0.3s ease-in-out, transform 0.3s ease-in-out';
+		mobileMenu.style.opacity = '1';
+		mobileMenu.style.transform = 'translateY(0)';
+
+		// Cambiar ícono a X (SVG path para lucide-react X icon)
+		menuIcon.innerHTML = `
+			<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+			</svg>
+		`;
+
+		mobileMenuOpen = true;
+	}
+
+	function closeMobileMenu() {
+		const mobileMenu = document.getElementById('mobile-menu') as HTMLElement;
+		const menuIcon = document.getElementById('menu-icon') as HTMLElement;
+
+		if (!mobileMenu || !menuIcon) return;
+
+		mobileMenu.style.opacity = '0';
+		mobileMenu.style.transform = 'translateY(-10px)';
+
+		setTimeout(() => {
+			mobileMenu.style.display = 'none';
+		}, 300);
+
+		// Cambiar ícono de vuelta al menú (SVG path para lucide-react Menu icon)
+		menuIcon.innerHTML = `
+			<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+			</svg>
+		`;
+
+		mobileMenuOpen = false;
+	}
+
+	// Inicializar event listeners cuando el DOM esté listo
+	document.addEventListener('DOMContentLoaded', function() {
+		const mobileMenuButton = document.getElementById('mobile-menu-button');
+		if (mobileMenuButton) {
+			mobileMenuButton.addEventListener('click', toggleMobileMenu);
+		}
+
+		// Cerrar menú al hacer clic fuera de él
+		document.addEventListener('click', function(event) {
+			const mobileMenu = document.getElementById('mobile-menu');
+			const mobileMenuButton = document.getElementById('mobile-menu-button');
+
+			if (mobileMenu && mobileMenuButton && mobileMenuOpen) {
+				const target = event.target as Node;
+				if (!mobileMenu.contains(target) && !mobileMenuButton.contains(target)) {
+					closeMobileMenu();
+				}
+			}
+		});
+
+		// Cerrar menú al cambiar el tamaño de la ventana a desktop
+		window.addEventListener('resize', function() {
+			if (window.innerWidth >= 768 && mobileMenuOpen) { // 768px es el breakpoint md
+				closeMobileMenu();
+			}
+		});
+	});
+</script>
