@@ -80,3 +80,8 @@ export const PROJECTS_CLAIMS_SECTION = {
 	],
 	buttonText: 'Get Your Free Custom Home Cinema Quote Today',
 } as const;
+
+export const PROJECTS_GALLERY_SECTION = {
+	heading: 'Every room tells a story',
+	title: 'Each space we create is a story of sound, light, and emotion',
+} as const;
