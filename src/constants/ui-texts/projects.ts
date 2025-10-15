@@ -85,3 +85,23 @@ export const PROJECTS_GALLERY_SECTION = {
 	heading: 'Every room tells a story',
 	title: 'Each space we create is a story of sound, light, and emotion',
 } as const;
+
+export const PROJECTS_CTAS_SECTION = {
+	heading: 'Ready to Create Your Dream Cinema?',
+	subtitle:
+		'Schedule your free in-home consultation and get a custom quote tailored to your space and preferences.',
+	buttons: [
+		{
+			text: 'Request your free consultation',
+			variant: 'default' as const,
+		},
+		{
+			text: 'Chat on WhatsApp',
+			variant: 'outline' as const,
+		},
+		{
+			text: 'Call now',
+			variant: 'outline' as const,
+		},
+	],
+} as const;

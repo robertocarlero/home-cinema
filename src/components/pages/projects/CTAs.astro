@@ -1,0 +1,54 @@
+---
+// CTAs section component for the Home Cinema application.
+// Features call-to-action buttons for consultation, WhatsApp, and phone contact.
+
+import image from '@/assets/images/projects/CTAs.png';
+import { Button } from '@/components/ui/button';
+import { PROJECTS_CTAS_SECTION } from '@/constants/ui-texts/projects';
+
+const buttons = [
+	{
+		text: PROJECTS_CTAS_SECTION.buttons[0].text,
+		variant: PROJECTS_CTAS_SECTION.buttons[0].variant,
+	},
+	{
+		text: PROJECTS_CTAS_SECTION.buttons[1].text,
+		variant: PROJECTS_CTAS_SECTION.buttons[1].variant,
+		className: 'hidden md:flex',
+	},
+	{
+		text: PROJECTS_CTAS_SECTION.buttons[2].text,
+		variant: PROJECTS_CTAS_SECTION.buttons[2].variant,
+	},
+];
+---
+
+<section
+	class="flex flex-col items-center justify-center gap-2.5 px-4 py-24 relative overflow-hidden"
+>
+	<img
+		alt="Home Cinema CTAs"
+		class="w-full h-[150%] sm:h-full top-0 object-cover absolute brightness-50"
+		src={image.src}
+	/>
+
+	<h2
+		class="z-10 font-bold text-white text-2xl sm:text-3xl lg:text-4xl text-center"
+	>
+		{PROJECTS_CTAS_SECTION.heading}
+	</h2>
+
+	<p class="z-10 font-medium text-neutral-500 text-lg text-center">
+		{PROJECTS_CTAS_SECTION.subtitle}
+	</p>
+
+	<div class="z-10 flex items-start gap-4 mt-6">
+		{
+			buttons.map((button) => (
+				<Button className={button.className} variant={button.variant}>
+					{button.text}
+				</Button>
+			))
+		}
+	</div>
+</section>
