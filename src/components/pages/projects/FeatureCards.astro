@@ -1,0 +1,63 @@
+---
+import { PROJECTS_FEATURES_SECTION } from '@/constants/ui-texts/projects';
+
+const featureCards = PROJECTS_FEATURES_SECTION.featureCards;
+---
+
+<section
+	class="flex flex-col items-center justify-center gap-24 px-4 py-24 bg-black text-white"
+>
+	<!-- Heading -->
+	<h2
+		class="max-w-3xl text-center text-2xl sm:text-3xl md:text-4xl font-semibold text-neutral-500"
+	>
+		{
+			PROJECTS_FEATURES_SECTION.heading.values.map(
+				({ value, highlight }) => (
+					<>
+						{!highlight ? (
+							value
+						) : (
+							<strong class="text-white">{value}</strong>
+						)}
+					</>
+				),
+			)
+		}
+	</h2>
+
+	<!-- Cards -->
+	<div class="flex flex-col md:flex-row items-start gap-4 gap-y-8 w-full">
+		{
+			featureCards.map((card) => (
+				<div class="flex flex-col items-start justify-end gap-4 flex-1 rounded-2xl">
+					<div class="relative aspect-video w-full border border-neutral-900 rounded-lg overflow-hidden">
+						<img
+							alt={card.title}
+							class="absolute  w-full h-full object-cover"
+							src={card.image.src}
+						/>
+						<div class="h-full w-full absolute bg-gradient-to-b from-transparent to-black/90" />
+
+						<div class="relative flex items-end h-full p-4">
+							<div class="flex flex-col items-start">
+								<h3 class="text-lg font-semibold text-white">
+									{card.title}
+								</h3>
+								<p class="text-sm text-neutral-400">
+									{card.subtitle}
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="flex items-center justify-center px-2.5 w-full">
+						<p class="text-sm text-neutral-400">
+							{card.description}
+						</p>
+					</div>
+				</div>
+			))
+		}
+	</div>
+</section>
