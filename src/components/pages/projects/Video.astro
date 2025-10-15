@@ -1,0 +1,35 @@
+---
+/**
+ * Video section component for the Home Cinema application.
+ * Features a background video with overlay text and gradient effects.
+ */
+
+import video from '@/assets/videos/projects.mp4';
+
+export interface Props {
+	className?: string;
+}
+
+const { className = '' } = Astro.props;
+---
+
+<section
+	class={`relative max-w-screen aspect-video bg-black overflow-hidden ${className}`}
+>
+	<!-- Background Video -->
+	<video
+		autoplay
+		class="absolute min-w-[120vw] left-1/2 -translate-x-1/2 object-cover mx-auto"
+		loop
+		muted
+		playsinline
+	>
+		<source src={video} type="video/mp4" />
+		Your browser does not support the video tag.
+	</video>
+
+	<div
+		class="absolute h-full w-full bg-gradient-to-b from-black via-transparent to-black"
+	>
+	</div>
+</section>
