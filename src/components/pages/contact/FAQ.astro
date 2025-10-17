@@ -1,0 +1,36 @@
+---
+import { FAQAccordion } from '@/components/FAQAccordion';
+---
+
+<section
+	class="w-full py-24 px-4 sm:px-6 flex justify-center text-white bg-black"
+>
+	<div
+		class="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-12 items-start"
+	>
+		<!-- Columna izquierda -->
+		<div class="space-y-4">
+			<p
+				class="text-lg sm:text-xl md:text-2xl text-neutral-500 font-bold"
+			>
+				FAQ
+			</p>
+
+			<h2
+				class="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight"
+			>
+				Have questions about your Home Cinema project?
+			</h2>
+
+			<p class="text-neutral-400 text-sm md:text-base leading-relaxed">
+				If you're unsure where to start, what to expect, or how the
+				process works, we're here to guide you.
+			</p>
+		</div>
+
+		<!-- Columna derecha -->
+		<div class="w-full">
+			<FAQAccordion client:idle />
+		</div>
+	</div>
+</section>
