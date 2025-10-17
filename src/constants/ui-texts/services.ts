@@ -17,7 +17,6 @@ export const SERVICES_CTAS_SECTION = {
 		description:
 			"Book your free consultation and we'll contact you within 24 hours.",
 		primaryButton: 'Request consultation',
-		secondaryButton: 'Chat on WhatsApp',
 	},
 	partnershipCTA: {
 		title: 'Partner with our team for luxury residential projects.',

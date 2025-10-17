@@ -1,34 +1,41 @@
 ---
+import { Button } from '@/components/ui/button';
+import { ROUTES } from '@/constants/navigation';
+
 // Componente Partners migrado de React a Astro
 ---
 
-<section class="relative flex flex-col items-center justify-center gap-14 px-4 py-24 bg-black">
-  <div class="bg-white/7 w-3xl h-96 absolute left-1/2 -translate-x-1/2 blur-3xl rounded-t-full" />
+<section
+	class="relative flex flex-col items-center justify-center gap-14 px-4 py-24 bg-black"
+>
+	<div
+		class="bg-white/7 w-3xl h-96 absolute left-1/2 -translate-x-1/2 blur-3xl rounded-t-full"
+	>
+	</div>
 
-  <p class="text-neutral-500 text-xl font-bold">
-    Partnership
-  </p>
+	<p class="z-10 text-neutral-500 text-xl font-bold">Partnership</p>
 
-  <h2 class="text-center  text-white  text-2xl sm:text-3xl lg:text-4xl font-bold">
-    For Designers & Architects
-  </h2>
+	<h2
+		class="z-10 text-center text-white text-2xl sm:text-3xl lg:text-4xl font-bold"
+	>
+		For Designers & Architects
+	</h2>
 
-  <p class="max-w-3xl sm:text-xl text-center font-medium">
-    <span class="text-neutral-500">
-      Partner with our team for luxury residential projects. We provide
-      specs, drawings, site coordination, and reference‑level calibration to{" "}
-    </span>
-    <span class="text-white">
-      match your design intent and client expectations
-    </span>
-    <span class="text-neutral-500">
-      —from discreet media rooms to statement private cinemas.
-    </span>
-  </p>
+	<p class="z-10 max-w-3xl sm:text-xl text-center font-medium">
+		<span class="text-neutral-500">
+			Partner with our team for luxury residential projects. We provide
+			specs, drawings, site coordination, and reference‑level calibration
+			to{' '}
+		</span>
+		<span class="text-white">
+			match your design intent and client expectations
+		</span>
+		<span class="text-neutral-500">
+			—from discreet media rooms to statement private cinemas.
+		</span>
+	</p>
 
-  <button class="z-10 h-auto px-4 py-2 bg-neutral-50 text-neutral-900 hover:bg-neutral-50/90 rounded-md cursor-pointer transition-colors">
-    <span class="">
-      Start Your Design Partnership
-    </span>
-  </button>
+	<a class="z-10" href={ROUTES.CONTACT.href}>
+		<Button> Start Your Design Partnership </Button>
+	</a>
 </section>

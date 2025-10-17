@@ -7,6 +7,7 @@
 import { ArrowUpRight } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
+import { ROUTES } from '@/constants/navigation';
 import { PROJECTS_CLAIMS_SECTION } from '@/constants/ui-texts/projects';
 
 export interface Props {
@@ -41,8 +42,10 @@ const { className = '' } = Astro.props;
 		}
 	</div>
 
-	<Button className="text-neutral-500" variant="link">
-		{PROJECTS_CLAIMS_SECTION.buttonText}
-		<ArrowUpRight className="w-4 h-4" />
-	</Button>
+	<a href={ROUTES.CONTACT.href}>
+		<Button className="text-neutral-500" variant="link">
+			{PROJECTS_CLAIMS_SECTION.buttonText}
+			<ArrowUpRight className="w-4 h-4" />
+		</Button>
+	</a>
 </section>

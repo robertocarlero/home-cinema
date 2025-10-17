@@ -3,6 +3,8 @@
  * Contains all user-facing strings specific to the contact page.
  */
 
+import { CONTACT_LINKS } from './global';
+
 export const CONTACT_HERO_SECTION = {
 	tagline: 'Let’s bring your vision to life.',
 	title: 'Start your Home Cinema consultation',
@@ -22,8 +24,8 @@ export const CONTACT_HERO_SECTION = {
 			link: 'tel:+14694125478',
 		},
 	},
-	whatsappButton: 'Chat on WhatsApp',
-	whatsappLink: 'https://wa.me/14694125478',
+	whatsappButton: CONTACT_LINKS.whatsapp.label,
+	whatsappLink: CONTACT_LINKS.whatsapp.url,
 } as const;
 
 export const CONTACT_FAQ_SECTION = {

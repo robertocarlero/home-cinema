@@ -3,38 +3,56 @@
 // Features call-to-action buttons for consultation, WhatsApp, and phone contact.
 
 import { Button } from '@/components/ui/button';
+import { ROUTES } from '@/constants/navigation';
+import { CONTACT_LINKS } from '@/constants/ui-texts/global';
 
 const buttons = [
-  {
-    text: "Request your free consultation",
-    variant: "default" as const,
-  },
-  {
-    text: "Chat on WhatsApp",
-    variant: "outline" as const,
-	className: "hidden md:flex",
-  },
-  {
-    text: "Call now",
-    variant: "outline" as const,
-  },
+	{
+		text: 'Request your free consultation',
+		variant: 'default' as const,
+		href: ROUTES.CONTACT.href,
+	},
+	{
+		text: CONTACT_LINKS.whatsapp.label,
+		variant: 'outline' as const,
+		className: 'hidden md:flex',
+		href: CONTACT_LINKS.whatsapp.url,
+		target: '_blank',
+		rel: 'noopener noreferrer',
+	},
+	{
+		text: CONTACT_LINKS.phone.label,
+		variant: 'outline' as const,
+		href: CONTACT_LINKS.phone.url,
+	},
 ];
 ---
 
-<section class="flex flex-col items-center justify-center gap-2.5 px-4 py-24 bg-neutral-50">
-  <h2 class="font-bold text-black text-2xl sm:text-3xl lg:text-4xl text-center">
-    Ready to build your private cinema?
-  </h2>
+<section
+	class="flex flex-col items-center justify-center gap-2.5 px-4 py-24 bg-neutral-50"
+>
+	<h2
+		class="font-bold text-black text-2xl sm:text-3xl lg:text-4xl text-center"
+	>
+		Ready to build your private cinema?
+	</h2>
 
-  <p class="font-medium text-neutral-500 text-lg text-center">
-    Book your free consultation and we'll contact you within 24 hours.
-  </p>
+	<p class="font-medium text-neutral-500 text-lg text-center">
+		Book your free consultation and we'll contact you within 24 hours.
+	</p>
 
-  <div class="light flex items-start gap-4 mt-6 text-black">
-    {buttons.map((button) => (
-      <Button className={button.className} variant={button.variant}>
-        {button.text}
-      </Button>
-    ))}
-  </div>
+	<div class="light flex items-start gap-4 mt-6 text-black">
+		{
+			buttons.map((button) => (
+				<a href={button.href} rel={button.rel} target={button.target}>
+					<Button
+						className={button.className}
+						variant={button.variant}
+					>
+						{button.text}
+					</Button>
+				</a>
+			))
+		}
+	</div>
 </section>

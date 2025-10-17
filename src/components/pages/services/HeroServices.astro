@@ -1,6 +1,7 @@
 ---
 import heroImage from '@/assets/images/hero-services.png';
 import { Button } from '@/components/ui/button';
+import { ROUTES } from '@/constants/navigation';
 import { SERVICES_HERO_SECTION } from '@/constants/ui-texts/services';
 ---
 
@@ -35,9 +36,11 @@ import { SERVICES_HERO_SECTION } from '@/constants/ui-texts/services';
 					{SERVICES_HERO_SECTION.subtitle}
 				</p>
 
-				<Button className="mt-4">
-					{SERVICES_HERO_SECTION.primaryButton}
-				</Button>
+				<a href={ROUTES.CONTACT.href}>
+					<Button className="mt-4">
+						{SERVICES_HERO_SECTION.primaryButton}
+					</Button>
+				</a>
 			</div>
 		</div>
 	</div>

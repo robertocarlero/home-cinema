@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { ROUTES } from '@/constants/navigation';
 
 /**
  * Interface for slide data structure
@@ -82,9 +83,14 @@ export function Slider({ slides, className }: SliderProps) {
 									<p className="text-neutral-500 mb-6 leading-relaxed">
 										{slide.description}
 									</p>
-									<Button variant="outline" className="w-fit">
-										{slide.buttonText}
-									</Button>
+									<a href={ROUTES.CONTACT.href}>
+										<Button
+											variant="outline"
+											className="w-fit"
+										>
+											{slide.buttonText}
+										</Button>
+									</a>
 								</div>
 							</div>
 						</div>

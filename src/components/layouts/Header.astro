@@ -13,6 +13,7 @@ import {
 	NAVIGATION_ROUTES,
 	HOME_ROUTE,
 	WHATSAPP_ROUTE,
+	ROUTES,
 } from '@/constants/navigation';
 
 export interface Props {
@@ -22,20 +23,22 @@ export interface Props {
 const { className = '' } = Astro.props;
 ---
 
-<header class={`fixed top-0 z-50 bg-black/50 w-full px-4 sm:px-6 lg:px-8 ${className}`}>
+<header
+	class={`fixed top-0 z-50 bg-black/50 w-full px-4 sm:px-6 lg:px-8 ${className}`}
+>
 	<div class="max-w-5xl mx-auto">
 		<div class="flex items-center justify-between h-16">
 			<!-- Logo Section -->
-			 <div class="w-56 lg:w-72">
-				 <a class="flex items-center w-fit" href={HOME_ROUTE}>
-					 <!-- Logo Image -->
-					 <img
-						 alt="Home Cinema Logo"
-						 class="h-8 object-contain"
-						 src={logo.src}
-					 />
-				 </a>
-			 </div>
+			<div class="w-56 lg:w-72">
+				<a class="flex items-center w-fit" href={HOME_ROUTE}>
+					<!-- Logo Image -->
+					<img
+						alt="Home Cinema Logo"
+						class="h-8 object-contain"
+						src={logo.src}
+					/>
+				</a>
+			</div>
 
 			<!-- Navigation Menu -->
 			<nav class="hidden md:flex items-center space-x-8">
@@ -52,7 +55,9 @@ const { className = '' } = Astro.props;
 			</nav>
 
 			<!-- Right Section -->
-			<div class="w-56 lg:w-72 flex items-center justify-end gap-2 lg:gap-4">
+			<div
+				class="w-56 lg:w-72 flex items-center justify-end gap-2 lg:gap-4"
+			>
 				<!-- WhatsApp Section -->
 				<a
 					href={WHATSAPP_ROUTE}
@@ -66,7 +71,9 @@ const { className = '' } = Astro.props;
 				</a>
 
 				<!-- CTA Button -->
-				<Button className="hidden md:flex">Get Free Consultation</Button>
+				<a class="hidden md:flex" href={ROUTES.CONTACT.href}>
+					<Button>Get Free Consultation</Button>
+				</a>
 
 				<Button
 					aria-label="Toggle menu"
@@ -103,27 +110,29 @@ const { className = '' } = Astro.props;
 			}
 
 			<!-- Mobile CTA Button -->
-			<div class="pt-4 border-t border-gray-800">
+			<div class="pt-4 border-t border-neutral-900">
 				<a
-					class="block w-full bg-white text-black text-center py-3 px-4 rounded-md font-medium hover:bg-gray-100 transition-colors"
-					href="#"
+					class="w-full"
+					href={ROUTES.CONTACT.href}
 					onclick="closeMobileMenu()"
 				>
-					Get Free Consultation
+					<Button className="w-full">Get Free Consultation</Button>
 				</a>
 			</div>
 
 			<!-- Mobile WhatsApp Button -->
 			<div class="pt-2">
 				<a
-					class="flex items-center justify-center gap-2 text-white hover:text-neutral-200 transition-colors py-2"
+					class="w-full"
 					href={WHATSAPP_ROUTE}
 					onclick="closeMobileMenu()"
 					rel="noopener noreferrer"
 					target="_blank"
 				>
-					<WhatsAppIcon size={20} />
-					<span>WhatsApp</span>
+					<Button className="w-full" variant="outline">
+						<WhatsAppIcon size={20} />
+						WhatsApp
+					</Button>
 				</a>
 			</div>
 		</div>
@@ -143,7 +152,9 @@ const { className = '' } = Astro.props;
 	}
 
 	function openMobileMenu() {
-		const mobileMenu = document.getElementById('mobile-menu') as HTMLElement;
+		const mobileMenu = document.getElementById(
+			'mobile-menu',
+		) as HTMLElement;
 		const menuIcon = document.getElementById('menu-icon') as HTMLElement;
 
 		if (!mobileMenu || !menuIcon) return;
@@ -155,7 +166,8 @@ const { className = '' } = Astro.props;
 		// Trigger reflow
 		mobileMenu.offsetHeight;
 
-		mobileMenu.style.transition = 'opacity 0.3s ease-in-out, transform 0.3s ease-in-out';
+		mobileMenu.style.transition =
+			'opacity 0.3s ease-in-out, transform 0.3s ease-in-out';
 		mobileMenu.style.opacity = '1';
 		mobileMenu.style.transform = 'translateY(0)';
 
@@ -170,7 +182,9 @@ const { className = '' } = Astro.props;
 	}
 
 	function closeMobileMenu() {
-		const mobileMenu = document.getElementById('mobile-menu') as HTMLElement;
+		const mobileMenu = document.getElementById(
+			'mobile-menu',
+		) as HTMLElement;
 		const menuIcon = document.getElementById('menu-icon') as HTMLElement;
 
 		if (!mobileMenu || !menuIcon) return;
@@ -193,28 +207,33 @@ const { className = '' } = Astro.props;
 	}
 
 	// Inicializar event listeners cuando el DOM esté listo
-	document.addEventListener('DOMContentLoaded', function() {
+	document.addEventListener('DOMContentLoaded', function () {
 		const mobileMenuButton = document.getElementById('mobile-menu-button');
 		if (mobileMenuButton) {
 			mobileMenuButton.addEventListener('click', toggleMobileMenu);
 		}
 
 		// Cerrar menú al hacer clic fuera de él
-		document.addEventListener('click', function(event) {
+		document.addEventListener('click', function (event) {
 			const mobileMenu = document.getElementById('mobile-menu');
-			const mobileMenuButton = document.getElementById('mobile-menu-button');
+			const mobileMenuButton =
+				document.getElementById('mobile-menu-button');
 
 			if (mobileMenu && mobileMenuButton && mobileMenuOpen) {
 				const target = event.target as Node;
-				if (!mobileMenu.contains(target) && !mobileMenuButton.contains(target)) {
+				if (
+					!mobileMenu.contains(target) &&
+					!mobileMenuButton.contains(target)
+				) {
 					closeMobileMenu();
 				}
 			}
 		});
 
 		// Cerrar menú al cambiar el tamaño de la ventana a desktop
-		window.addEventListener('resize', function() {
-			if (window.innerWidth >= 768 && mobileMenuOpen) { // 768px es el breakpoint md
+		window.addEventListener('resize', function () {
+			if (window.innerWidth >= 768 && mobileMenuOpen) {
+				// 768px es el breakpoint md
 				closeMobileMenu();
 			}
 		});

@@ -29,4 +29,4 @@ export const NAVIGATION_ROUTES: NavigationRoute[] = Object.values(ROUTES);
 
 export const HOME_ROUTE = '/';
 
-export const WHATSAPP_ROUTE = 'https://wa.me/1234567890'; // TODO: Replace with actual WhatsApp number
+export const WHATSAPP_ROUTE = 'https://wa.me/14694125478';

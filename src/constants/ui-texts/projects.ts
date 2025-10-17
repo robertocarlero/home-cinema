@@ -6,6 +6,7 @@
 import featured1 from '@/assets/images/projects/featured-1.png';
 import featured2 from '@/assets/images/projects/featured-2.png';
 import featured3 from '@/assets/images/projects/featured-3.png';
+import { CONTACT_LINKS } from './global';
 
 export const PROJECTS_HERO_SECTION = {
 	title: 'Luxury Home Cinemas',
@@ -13,7 +14,6 @@ export const PROJECTS_HERO_SECTION = {
 	description:
 		"Explore our portfolio of custom theaters featuring Dolby Atmos, calibrated acoustics, and smart-home control in Dallas's most prestigious neighborhoods.",
 	primaryButton: 'Request your free consultation',
-	secondaryButton: 'Chat on WhatsApp',
 	heroVideoAlt: 'Luxury home cinema projects showcase',
 } as const;
 
@@ -101,12 +101,12 @@ export const PROJECTS_CTAS_SECTION = {
 			variant: 'default' as const,
 		},
 		{
-			text: 'Chat on WhatsApp',
-			variant: 'outline' as const,
+			text: CONTACT_LINKS.whatsapp.label,
+			variant: 'secondary' as const,
 		},
 		{
-			text: 'Call now',
-			variant: 'outline' as const,
+			text: CONTACT_LINKS.phone.label,
+			variant: 'secondary' as const,
 		},
 	],
 } as const;

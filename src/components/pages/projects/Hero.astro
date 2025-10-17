@@ -1,6 +1,8 @@
 ---
 import heroVideo from '@/assets/videos/hero-projects.mp4';
 import { Button } from '@/components/ui/button';
+import { ROUTES } from '@/constants/navigation';
+import { CONTACT_LINKS } from '@/constants/ui-texts/global';
 import { PROJECTS_HERO_SECTION } from '@/constants/ui-texts/projects';
 ---
 
@@ -41,10 +43,18 @@ import { PROJECTS_HERO_SECTION } from '@/constants/ui-texts/projects';
 		</div>
 
 		<div class="flex flex-wrap justify-center gap-6">
-			<Button>{PROJECTS_HERO_SECTION.primaryButton}</Button>
-			<Button variant="secondary"
-				>{PROJECTS_HERO_SECTION.secondaryButton}</Button
+			<a href={ROUTES.CONTACT.href}>
+				<Button>{PROJECTS_HERO_SECTION.primaryButton}</Button>
+			</a>
+			<a
+				href={CONTACT_LINKS.whatsapp.url}
+				rel="noopener noreferrer"
+				target="_blank"
 			>
+				<Button variant="secondary">
+					{CONTACT_LINKS.whatsapp.label}
+				</Button>
+			</a>
 		</div>
 	</div>
 </section>

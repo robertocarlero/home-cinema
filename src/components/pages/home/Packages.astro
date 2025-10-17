@@ -7,6 +7,7 @@
 import { Users, MonitorSpeaker, Star } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
+import { ROUTES } from '@/constants/navigation';
 import { HOME_PACKAGES_SECTION } from '@/constants/ui-texts/home';
 
 export interface Props {
@@ -26,7 +27,7 @@ const iconMap = {
 <section
 	class={`flex flex-col items-center justify-center gap-24 px-5 md:px-24 lg:px-4 py-24 bg-black ${className}`}
 >
-	<h2 class="text-white  text-2xl sm:text-3xl lg:text-4xl font-bold">
+	<h2 class="text-white text-2xl sm:text-3xl lg:text-4xl font-bold">
 		{HOME_PACKAGES_SECTION.title}
 	</h2>
 
@@ -41,7 +42,9 @@ const iconMap = {
 				return (
 					<div
 						class={`relative flex-1 border-neutral-900 ${
-							isMid ? 'border-y-2 lg:border-y-none lg:border-x-2 border-neutral-900' : ''
+							isMid
+								? 'border-y-2 lg:border-y-none lg:border-x-2 border-neutral-900'
+								: ''
 						}`}
 					>
 						{pkg.showBadge && (
@@ -84,12 +87,14 @@ const iconMap = {
 								</div>
 							</div>
 
-							<Button
-								className="w-full rounded-md px-4 py-2 font-body-medium"
-								variant={pkg.buttonVariant}
-							>
-								{pkg.buttonText}
-							</Button>
+							<a class="w-full" href={ROUTES.CONTACT.href}>
+								<Button
+									className="w-full rounded-md px-4 py-2 font-body-medium"
+									variant={pkg.buttonVariant}
+								>
+									{pkg.buttonText}
+								</Button>
+							</a>
 						</div>
 					</div>
 				);

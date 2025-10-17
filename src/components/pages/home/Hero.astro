@@ -8,6 +8,7 @@ import desktopImage from '@/assets/hero-background.jpg';
 import mobileImage from '@/assets/hero-mobile.jpg';
 import { Button } from '@/components/ui/button';
 import VignetteOverlay from '@/components/VignetteOverlay.astro';
+import { ROUTES } from '@/constants/navigation';
 import { HOME_HERO_SECTION } from '@/constants/ui-texts/home';
 
 export interface Props {
@@ -46,12 +47,16 @@ const { className = '' } = Astro.props;
 				<div
 					class="flex flex-col sm:flex-row gap-4 justify-center items-center"
 				>
-					<Button>
-						{HOME_HERO_SECTION.primaryButton}
-					</Button>
-					<Button variant="secondary">
-						{HOME_HERO_SECTION.secondaryButton}
-					</Button>
+					<a href={ROUTES.CONTACT.href}>
+						<Button>
+							{HOME_HERO_SECTION.primaryButton}
+						</Button>
+					</a>
+					<a href={ROUTES.PROJECTS.href}>
+						<Button variant="secondary">
+							{HOME_HERO_SECTION.secondaryButton}
+						</Button>
+					</a>
 				</div>
 			</div>
 		</div>
