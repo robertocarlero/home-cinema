@@ -56,21 +56,21 @@ const items = Array.from({ length: 28 }, (_, i) => {
 
 			<div class="space-y-1">
 				<p class="text-neutral-500">
-					{CONTACT_HERO_SECTION.contactInfo.email.label}
+					{CONTACT_LINKS.email.label}:
 					<a
 						class="text-white font-medium hover:text-neutral-300 transition"
-						href={CONTACT_HERO_SECTION.contactInfo.email.link}
+						href={CONTACT_LINKS.email.url}
 					>
-						{CONTACT_HERO_SECTION.contactInfo.email.value}
+						{CONTACT_LINKS.email.address}
 					</a>
 				</p>
 				<p class="text-neutral-500">
-					{CONTACT_HERO_SECTION.contactInfo.phone.label}
+					{CONTACT_LINKS.phone.label}:
 					<a
 						class="text-white font-medium hover:text-neutral-300 transition"
-						href={CONTACT_HERO_SECTION.contactInfo.phone.link}
+						href={CONTACT_LINKS.phone.url}
 					>
-						{CONTACT_HERO_SECTION.contactInfo.phone.value}
+						{CONTACT_LINKS.phone.displayNumber}
 					</a>
 				</p>
 			</div>

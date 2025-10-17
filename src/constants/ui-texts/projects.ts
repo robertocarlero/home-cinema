@@ -14,7 +14,6 @@ export const PROJECTS_HERO_SECTION = {
 	description:
 		"Explore our portfolio of custom theaters featuring Dolby Atmos, calibrated acoustics, and smart-home control in Dallas's most prestigious neighborhoods.",
 	primaryButton: 'Request your free consultation',
-	heroVideoAlt: 'Luxury home cinema projects showcase',
 } as const;
 
 export const PROJECTS_PORTFOLIO_SECTION = {

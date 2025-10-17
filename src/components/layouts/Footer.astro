@@ -7,7 +7,7 @@
 import FacebookIcon from '@/components/icons/FacebookIcon.astro';
 import InstagramIcon from '@/components/icons/InstagramIcon.astro';
 import YouTubeIcon from '@/components/icons/YouTubeIcon.astro';
-import { FOOTER_INFO } from '@/constants/ui-texts/global';
+import { CONTACT_LINKS, FOOTER_INFO } from '@/constants/ui-texts/global';
 
 // Map icon names to components
 const iconMap = {
@@ -15,8 +15,6 @@ const iconMap = {
 	Instagram: InstagramIcon,
 	Youtube: YouTubeIcon,
 } as const;
-
-const telCleaned = FOOTER_INFO.phone.replace(/\D/g, '');
 ---
 
 <footer
@@ -26,7 +24,7 @@ const telCleaned = FOOTER_INFO.phone.replace(/\D/g, '');
 		<address class="text-neutral-500 sm:text-lg font-semibold">
 			{FOOTER_INFO.address}
 			<br />
-			<a href={`tel:+1${telCleaned}`}>{FOOTER_INFO.phone}</a>
+			<a href={CONTACT_LINKS.phone.url}>{CONTACT_LINKS.phone.label}</a>
 		</address>
 
 		<nav

@@ -4,7 +4,6 @@
  */
 
 export const NAVIGATION = {
-	home: 'Home',
 	services: 'Services',
 	projects: 'Projects',
 	contact: 'Contact',
@@ -22,14 +21,13 @@ export const CONTACT_LINKS = {
 	},
 	email: {
 		url: 'mailto:hello@mediamasters.solutions',
-		label: 'Email us',
+		label: 'Email',
 		address: 'hello@mediamasters.solutions',
 	},
 } as const;
 
 export const FOOTER_INFO = {
 	address: 'DFW Metroplex, Texas',
-	phone: '(469) 412-5478',
 	copyright: `© ${new Date().getFullYear()} Home Cinema Solutions, All Rights Reserved.`,
 	socialMediaLinks: [
 		{

@@ -12,20 +12,6 @@ export const CONTACT_HERO_SECTION = {
 		"Ready to design your perfect home theater? Whether you're starting from scratch or upgrading your current setup, our specialists are here to help.",
 	description:
 		"Tell us about your space, your goals, and your style—we'll take care of the rest.",
-	contactInfo: {
-		email: {
-			label: 'Email:',
-			value: 'hello@mediamasters.solutions',
-			link: 'mailto:hello@mediamasters.solutions',
-		},
-		phone: {
-			label: 'Phone:',
-			value: '(469) 412-5478',
-			link: 'tel:+14694125478',
-		},
-	},
-	whatsappButton: CONTACT_LINKS.whatsapp.label,
-	whatsappLink: CONTACT_LINKS.whatsapp.url,
 } as const;
 
 export const CONTACT_FAQ_SECTION = {
