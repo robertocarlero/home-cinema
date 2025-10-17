@@ -5,12 +5,14 @@
 import Layout from '@/components/layouts/Layout.astro';
 import FAQ from '@/components/pages/contact/FAQ.astro';
 import Hero from '@/components/pages/contact/Hero.astro';
-const description =
-	'Get in touch with our home cinema specialists. Start your consultation today and bring your vision to life.';
-const title = 'Contact Us - Home Cinema Consultation';
+import { PAGE_METADATA } from '@/constants/ui-texts/global';
 ---
 
-<Layout description={description} theme="dark" title={title}>
+<Layout
+	description={PAGE_METADATA.contact.description}
+	theme="dark"
+	title={PAGE_METADATA.contact.title}
+>
 	<Hero />
 	<FAQ />
 </Layout>

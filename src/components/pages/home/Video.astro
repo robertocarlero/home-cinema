@@ -4,9 +4,9 @@
  * Features a background video with overlay text and gradient effects.
  */
 
- import video from '@/assets/videos/home.mp4';
+import video from '@/assets/videos/home.mp4';
 import VignetteOverlay from '@/components/VignetteOverlay.astro';
-
+import { HOME_VIDEO_SECTION } from '@/constants/ui-texts/home';
 
 export interface Props {
 	className?: string;
@@ -15,63 +15,71 @@ export interface Props {
 const { className = '' } = Astro.props;
 ---
 
-<section class={`relative flex items-center aspect-square sm:aspect-video bg-black overflow-hidden ${className}`}>
-  <!-- Background Video -->
-  <video
-    autoplay
-    class="absolute inset-0 w-full h-full object-cover"
-    loop
-    muted
-    playsinline
-  >
-    <source src={video} type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-
-  <VignetteOverlay
-    className="absolute top-0 left-0 w-full h-full z-10"
-    height="100%"
-    imageUrl={video}
-	width='100%'
+<section
+	class={`relative flex items-center aspect-square sm:aspect-video bg-black overflow-hidden ${className}`}
+>
+	<!-- Background Video -->
+	<video
+		autoplay
+		class="absolute inset-0 w-full h-full object-cover"
+		loop
+		muted
+		playsinline
 	>
+		<source src={video} type="video/mp4" />
+		Your browser does not support the video tag.
+	</video>
 
-  <!-- Content Container -->
-  <div class="container relative flex flex-col justify-center px-4 sm:px-8 gap-12 lg:px-14 h-full">
-    <!-- Text Content -->
-	 <div class=" bg-black/50 lg:bg-bg-black w-2xl h-96 absolute left-0 blur-3xl rounded-full" />
-    <div class="z-10 exclude-overlay w-full sm:max-w-lg cursor-auto flex flex-col justify-center gap-6 sm:gap-8 lg:gap-14">
-      <h2 class="text-center sm:text-left text-2xl sm:text-3xl lg:text-4xl text-white font-bold">
-        Home Cinema.
-        <br />
-        All-time immersive.
-      </h2>
-      <p class="text-center sm:text-left sm:text-xl lg:text-2xl font-bold">
-        <span class="text-neutral-500">
-          Our professional installation transforms your living space into a
-          private cinema. From Dolby Atmos sound to 4K/8K projectors and
-          custom lighting,{" "}
-        </span>
-        <span class="text-white">
-          every detail is designed for total immersion
-        </span>
-        <span class="text-neutral-500">
-          . Movie nights, game days, or streaming—your home is always ready
-          for the big screen.
-        </span>
-      </p>
-    </div>
-  </div>
-  </VignetteOverlay>
+	<VignetteOverlay
+		className="absolute top-0 left-0 w-full h-full z-10"
+		height="100%"
+		imageUrl={video}
+		width="100%"
+	>
+		<!-- Content Container -->
+		<div
+			class="container relative flex flex-col justify-center px-4 sm:px-8 gap-12 lg:px-14 h-full"
+		>
+			<!-- Text Content -->
+			<div
+				class="bg-black/50 lg:bg-bg-black w-2xl h-96 absolute left-0 blur-3xl rounded-full"
+			>
+			</div>
+			<div
+				class="z-10 exclude-overlay w-full sm:max-w-lg cursor-auto flex flex-col justify-center gap-6 sm:gap-8 lg:gap-14"
+			>
+				<h2
+					class="text-center sm:text-left text-2xl sm:text-3xl lg:text-5xl text-white font-bold"
+				>
+					{HOME_VIDEO_SECTION.title}<br />
+					{HOME_VIDEO_SECTION.subtitle}
+				</h2>
+				<p
+					class="text-center sm:text-left sm:text-xl lg:text-2xl font-bold"
+				>
+					<span class="text-neutral-500">
+						{HOME_VIDEO_SECTION.description.part1}{' '}
+					</span>
+					<span class="text-white">
+						{HOME_VIDEO_SECTION.description.highlight}
+					</span>
+					<span class="text-neutral-500">
+						{HOME_VIDEO_SECTION.description.part2}
+					</span>
+				</p>
+			</div>
+		</div>
+	</VignetteOverlay>
 </section>
 
 <style>
-  /* Additional styles for video background */
-  video {
-    z-index: 1;
-  }
+	/* Additional styles for video background */
+	video {
+		z-index: 1;
+	}
 
-  .container {
-    position: relative;
-    z-index: 2;
-  }
+	.container {
+		position: relative;
+		z-index: 2;
+	}
 </style>

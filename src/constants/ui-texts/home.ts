@@ -90,6 +90,33 @@ export const HOME_BLOCKS_SECTION = {
 	],
 } as const;
 
+export const HOME_VIDEO_SECTION = {
+	title: 'Home Cinema.',
+	subtitle: 'All-time immersive.',
+	description: {
+		part1: 'Our professional installation transforms your living space into a private cinema. From Dolby Atmos sound to 4K/8K projectors and custom lighting,',
+		highlight: 'every detail is designed for total immersion',
+		part2: '. Movie nights, game days, or streaming—your home is always ready for the big screen.',
+	},
+} as const;
+
+export const HOME_PARTNERS_SECTION = {
+	tagline: 'Partnership',
+	title: 'For Designers & Architects',
+	description: {
+		part1: 'Partner with our team for luxury residential projects. We provide specs, drawings, site coordination, and reference‑level calibration to',
+		highlight: 'match your design intent and client expectations',
+		part2: ' —from discreet media rooms to statement private cinemas.',
+	},
+	buttonText: 'Start Your Design Partnership',
+} as const;
+
+export const HOME_CTAS_SECTION = {
+	title: 'Ready to build your private cinema?',
+	description:
+		"Book your free consultation and we'll contact you within 24 hours.",
+} as const;
+
 export const HOME_PACKAGES_SECTION = {
 	title: 'Curated Packages',
 	description:

@@ -13,12 +13,13 @@ import Packages from '@/components/pages/home/Packages.astro';
 import Partners from '@/components/pages/home/Partners.astro';
 import ProcessSection from '@/components/pages/home/ProcessSection.astro';
 import Video from '@/components/pages/home/Video.astro';
+import { PAGE_METADATA } from '@/constants/ui-texts/global';
 ---
 
 <Layout
-	description="From design to setup, we create tailored home theater experiences that fit your lifestyle."
+	description={PAGE_METADATA.home.description}
 	theme="dark"
-	title="Home Cinema in Dallas - Custom Home Theater Solutions"
+	title={PAGE_METADATA.home.title}
 >
 	<Hero />
 	<ProcessSection />

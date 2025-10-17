@@ -8,12 +8,13 @@ import Layout from '@/components/layouts/Layout.astro';
 import Hero from '@/components/pages/services/HeroServices.astro';
 import ServicesCTAs from '@/components/pages/services/ServicesCTAs.astro';
 import ServicesGrid from '@/components/pages/services/ServicesGrid.astro';
+import { PAGE_METADATA } from '@/constants/ui-texts/global';
 ---
 
 <Layout
-	description="Custom design & installation for luxury home theaters in Dallas and premier suburbs."
+	description={PAGE_METADATA.services.description}
 	theme="dark"
-	title="Home Cinema Services - Custom Design & Installation"
+	title={PAGE_METADATA.services.title}
 >
 	<Hero />
 	<ServicesGrid />

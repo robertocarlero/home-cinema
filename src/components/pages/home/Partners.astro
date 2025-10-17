@@ -1,6 +1,7 @@
 ---
 import { Button } from '@/components/ui/button';
 import { ROUTES } from '@/constants/navigation';
+import { HOME_PARTNERS_SECTION } from '@/constants/ui-texts/home';
 
 // Componente Partners migrado de React a Astro
 ---
@@ -13,29 +14,29 @@ import { ROUTES } from '@/constants/navigation';
 	>
 	</div>
 
-	<p class="z-10 text-neutral-500 text-xl font-bold">Partnership</p>
+	<p class="z-10 text-neutral-500 text-xl font-bold">
+		{HOME_PARTNERS_SECTION.tagline}
+	</p>
 
 	<h2
 		class="z-10 text-center text-white text-2xl sm:text-3xl lg:text-4xl font-bold"
 	>
-		For Designers & Architects
+		{HOME_PARTNERS_SECTION.title}
 	</h2>
 
 	<p class="z-10 max-w-3xl sm:text-xl text-center font-medium">
 		<span class="text-neutral-500">
-			Partner with our team for luxury residential projects. We provide
-			specs, drawings, site coordination, and reference‑level calibration
-			to{' '}
+			{HOME_PARTNERS_SECTION.description.part1}{' '}
 		</span>
 		<span class="text-white">
-			match your design intent and client expectations
+			{HOME_PARTNERS_SECTION.description.highlight}
 		</span>
 		<span class="text-neutral-500">
-			—from discreet media rooms to statement private cinemas.
+			{HOME_PARTNERS_SECTION.description.part2}
 		</span>
 	</p>
 
 	<a class="z-10" href={ROUTES.CONTACT.href}>
-		<Button> Start Your Design Partnership </Button>
+		<Button>{HOME_PARTNERS_SECTION.buttonText}</Button>
 	</a>
 </section>

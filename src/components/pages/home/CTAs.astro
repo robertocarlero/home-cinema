@@ -5,6 +5,7 @@
 import { Button } from '@/components/ui/button';
 import { ROUTES } from '@/constants/navigation';
 import { CONTACT_LINKS } from '@/constants/ui-texts/global';
+import { HOME_CTAS_SECTION } from '@/constants/ui-texts/home';
 
 const buttons = [
 	{
@@ -34,11 +35,11 @@ const buttons = [
 	<h2
 		class="font-bold text-black text-2xl sm:text-3xl lg:text-4xl text-center"
 	>
-		Ready to build your private cinema?
+		{HOME_CTAS_SECTION.title}
 	</h2>
 
 	<p class="font-medium text-neutral-500 text-lg text-center">
-		Book your free consultation and we'll contact you within 24 hours.
+		{HOME_CTAS_SECTION.description}
 	</p>
 
 	<div class="light flex items-start gap-4 mt-6 text-black">

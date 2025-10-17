@@ -12,12 +12,13 @@ import Gallery from '@/components/pages/projects/Gallery.astro';
 import Hero from '@/components/pages/projects/Hero.astro';
 import PortfolioSection from '@/components/pages/projects/PortfolioSection.astro';
 import Video from '@/components/pages/projects/Video.astro';
+import { PAGE_METADATA } from '@/constants/ui-texts/global';
 ---
 
 <Layout
-	description="Explore our portfolio of luxury home cinema projects featuring Dolby Atmos, calibrated acoustics, and smart-home control in Dallas's most prestigious neighborhoods."
+	description={PAGE_METADATA.projects.description}
 	theme="dark"
-	title="Projects - Luxury Home Cinemas Across Dallas"
+	title={PAGE_METADATA.projects.title}
 >
 	<Hero />
 	<ClaimsSection />
