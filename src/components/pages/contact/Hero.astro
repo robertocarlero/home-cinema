@@ -1,0 +1,119 @@
+---
+import image from '@/assets/images/hero-contact.png';
+
+const items = Array.from({ length: 28 }, (_, i) => {
+	const colors = [
+		'bg-black',
+		'bg-neutral-900',
+		'bg-neutral-800',
+		'bg-neutral-700',
+		'bg-black',
+	];
+	const position = Math.floor(Math.random() * colors.length);
+	const color = colors[position];
+	return color;
+});
+console.log(items);
+---
+
+<section
+	class="class w-screen h-screen flex justify-center px-4 sm:px-6 bg-black"
+>
+	<div
+		class="relative w-full max-w-5xl flex flex-col md:flex-row items-center justify-center gap-12 py-24"
+	>
+		<div
+			class="vignette-overlay absolute scale-105 w-full grid grid-cols-4 grid-rows-6 sm:grid-cols-5 sm:grid-rows-5 lg:grid-cols-7 lg:grid-rows-4 top-1/2 -translate-y-1/2"
+		>
+			{
+				items.map((bg) => (
+					<div
+						class={`${bg} brightness-50 aspect-square w-full`}
+						style="box-shadow: rgb(50, 50, 50) 0px 0px 0px 1px;"
+					/>
+				))
+			}
+		</div>
+		<div class="z-10 flex flex-col items-start md:max-w-xl space-y-4">
+			<p
+				class="text-lg sm:text-xl md:text-2xl text-neutral-500 font-bold"
+			>
+				Let’s bring your vision to life.
+			</p>
+
+			<h2 class="text-2xl sm:text-3xl md:text-4xl font-bold">
+				Start your <strong>Home Cinema consultation </strong>
+			</h2>
+
+			<p class="text-neutral-500">
+				Ready to design your perfect home theater? Whether you're
+				starting from scratch or upgrading your current setup, our
+				specialists are here to help.
+			</p>
+
+			<p class="text-neutral-500">
+				Tell us about your space, your goals, and your style—we'll take
+				care of the rest.
+			</p>
+
+			<div class="space-y-1">
+				<p class="text-neutral-500">
+					Email:
+					<a
+						class="text-white font-medium hover:text-neutral-300 transition"
+						href="mailto:hello@mediamasters.solutions"
+					>
+						hello@mediamasters.solutions
+					</a>
+				</p>
+				<p class="text-neutral-500">
+					Phone:
+					<a
+						class="text-white font-medium hover:text-neutral-300 transition"
+						href="tel:+14694125478"
+					>
+						(469) 412-5478
+					</a>
+				</p>
+			</div>
+
+			<a
+				class="inline-flex items-center justify-center px-4 py-2 mt-4 text-sm font-medium text-white border border-neutral-700 rounded-md hover:bg-neutral-800 transition"
+				href="https://wa.me/14694125478"
+				rel="noopener noreferrer"
+				target="_blank"
+			>
+				Chat on WhatsApp
+			</a>
+		</div>
+
+		<!-- Form Column -->
+		<div
+			class="z-10 w-full h-full max-w-md bg-neutral-900 border border-neutral-800 rounded-lg p-6 flex flex-col gap-4"
+		>
+		</div>
+	</div>
+</section>
+
+<style>
+	.vignette-overlay::after {
+		content: '';
+		scale: 0.999;
+		width: 100%;
+		height: 100%;
+		z-index: 100;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		background: radial-gradient(
+			ellipse at center,
+			rgba(0, 0, 0, 0) 0%,
+			rgba(0, 0, 0, 0.3) 50%,
+			black 70%,
+			black 100%
+		);
+		outline: 10px solid black;
+		border: 5px solid black;
+		box-shadow: black 0px 0px 0px 10px;
+	}
+</style>
