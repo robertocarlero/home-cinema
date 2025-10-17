@@ -17,6 +17,11 @@ export const PROJECTS_HERO_SECTION = {
 	heroVideoAlt: 'Luxury home cinema projects showcase',
 } as const;
 
+export const PROJECTS_PORTFOLIO_SECTION = {
+	tagline: '/ Our portfolio',
+	title: 'Only one team transforms technology into timeless cinematic design.',
+} as const;
+
 export const PROJECTS_FEATURES_SECTION = {
 	heading: {
 		values: [

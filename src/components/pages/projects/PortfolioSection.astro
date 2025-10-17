@@ -1,10 +1,14 @@
+---
+import { PROJECTS_PORTFOLIO_SECTION } from '@/constants/ui-texts/projects';
+---
+
 <section class="flex items-center justify-center py-12 sm:py-24 px-4 bg-black">
 	<div
 		class="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12"
 	>
 		<!-- Left column -->
 		<div class="flex items-start">
-			<p class="text-neutral-500">/ Our portfolio</p>
+			<p class="text-neutral-500">{PROJECTS_PORTFOLIO_SECTION.tagline}</p>
 		</div>
 
 		<!-- Right column -->
@@ -12,8 +16,7 @@
 			<h3
 				class="text-3xl sm:text-4xl md:text-5xl font-semibold text-white"
 			>
-				Only one team transforms technology into timeless cinematic
-				design.
+				{PROJECTS_PORTFOLIO_SECTION.title}
 			</h3>
 		</div>
 	</div>
