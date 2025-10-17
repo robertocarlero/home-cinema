@@ -1,5 +1,5 @@
 ---
-import image from '@/assets/images/hero-contact.png';
+import { ContactForm } from '@/components/ContactForm';
 
 const items = Array.from({ length: 28 }, (_, i) => {
 	const colors = [
@@ -13,7 +13,6 @@ const items = Array.from({ length: 28 }, (_, i) => {
 	const color = colors[position];
 	return color;
 });
-console.log(items);
 ---
 
 <section
@@ -34,7 +33,7 @@ console.log(items);
 				))
 			}
 		</div>
-		<div class="z-10 flex flex-col items-start md:max-w-xl space-y-4">
+		<div class="z-10 flex flex-col items-start max-w-xl space-y-4">
 			<p
 				class="text-lg sm:text-xl md:text-2xl text-neutral-500 font-bold"
 			>
@@ -89,8 +88,9 @@ console.log(items);
 
 		<!-- Form Column -->
 		<div
-			class="z-10 w-full h-full max-w-md bg-neutral-900 border border-neutral-800 rounded-lg p-6 flex flex-col gap-4"
+			class="z-10 w-full max-w-md bg-neutral-900 border border-neutral-800 rounded-lg p-6"
 		>
+			<ContactForm className="w-full h-full" client:idle />
 		</div>
 	</div>
 </section>
