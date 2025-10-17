@@ -4,30 +4,10 @@ import {
 	AccordionTrigger,
 	Accordion,
 } from '@/components/ui/accordion';
+import { CONTACT_FAQ_ACCORDION } from '@/constants/ui-texts/contact';
 
 export function FAQAccordion() {
-	const faqItems = [
-		{
-			question: 'What’s included in a Home Cinema installation?',
-			answer: 'Every installation includes a tailored setup: audio calibration, acoustic optimization, projector or TV installation, and smart integration.',
-		},
-		{
-			question: 'Do you offer custom designs?',
-			answer: 'Absolutely. We specialize in fully customized designs that match your space, style, and performance goals.',
-		},
-		{
-			question: 'Can you upgrade my existing system?',
-			answer: 'Yes — we can integrate your current equipment, enhance audio and visual quality, or modernize your control systems.',
-		},
-		{
-			question: 'How long does the installation take?',
-			answer: "Typical installations take between 1 and 3 weeks, depending on the project's complexity and customization level.",
-		},
-		{
-			question: 'Do you work with designers or builders?',
-			answer: 'We frequently collaborate with architects, interior designers, and builders to ensure a seamless integration into your home design.',
-		},
-	];
+	const faqItems = CONTACT_FAQ_ACCORDION.items;
 
 	return (
 		<Accordion className="w-full space-y-2" collapsible type="single">

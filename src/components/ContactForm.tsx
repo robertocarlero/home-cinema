@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Toaster } from '@/components/ui/sonner';
 import { cn } from '@/lib/utils';
 import { toast } from 'sonner';
+import { CONTACT_FORM } from '@/constants/ui-texts/contact';
 
 interface ContactFormProps {
 	className?: string;
@@ -43,11 +44,11 @@ export function ContactForm({ className }: ContactFormProps) {
 
 			const result = await response.json();
 			if (!result.success) throw new Error(result.error);
-			toast.success('Message sent successfully!');
+			toast.success(CONTACT_FORM.messages.success);
 			setFormData({ name: '', email: '', message: '' });
 		} catch (error) {
 			console.error(error);
-			toast.error('Failed to send message. Please try again.');
+			toast.error(CONTACT_FORM.messages.error);
 		} finally {
 			setIsSubmitting(false);
 		}
@@ -57,19 +58,19 @@ export function ContactForm({ className }: ContactFormProps) {
 
 	return (
 		<>
-			<Toaster position='bottom-center'/>
+			<Toaster position="bottom-center" />
 			<form
 				onSubmit={handleSubmit}
 				className={cn('flex flex-col gap-6', className)}
 			>
 				<div className="flex flex-col gap-2">
 					<Label htmlFor="name" className="text-neutral-400">
-						Full name
+						{CONTACT_FORM.fields.name.label}
 					</Label>
 					<Input
 						id="name"
 						name="name"
-						placeholder="Full name"
+						placeholder={CONTACT_FORM.fields.name.placeholder}
 						value={formData.name}
 						onChange={handleChange}
 					/>
@@ -77,13 +78,13 @@ export function ContactForm({ className }: ContactFormProps) {
 
 				<div className="flex flex-col gap-2">
 					<Label htmlFor="email" className="text-neutral-400">
-						Email address
+						{CONTACT_FORM.fields.email.label}
 					</Label>
 					<Input
 						id="email"
 						name="email"
 						type="email"
-						placeholder="Email address"
+						placeholder={CONTACT_FORM.fields.email.placeholder}
 						value={formData.email}
 						onChange={handleChange}
 					/>
@@ -91,12 +92,12 @@ export function ContactForm({ className }: ContactFormProps) {
 
 				<div className="flex flex-col gap-2">
 					<Label htmlFor="message" className="text-neutral-400">
-						Message
+						{CONTACT_FORM.fields.message.label}
 					</Label>
 					<Textarea
 						id="message"
 						name="message"
-						placeholder="Message"
+						placeholder={CONTACT_FORM.fields.message.placeholder}
 						className="h-28 resize-none"
 						rows={8}
 						value={formData.message}
@@ -105,7 +106,9 @@ export function ContactForm({ className }: ContactFormProps) {
 				</div>
 
 				<Button type="submit" disabled={isSubmitting || !formIsValid}>
-					{isSubmitting ? 'Sending...' : 'Send message'}
+					{isSubmitting
+						? CONTACT_FORM.submittingButton
+						: CONTACT_FORM.submitButton}
 				</Button>
 			</form>{' '}
 		</>

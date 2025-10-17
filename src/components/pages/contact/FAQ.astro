@@ -1,5 +1,6 @@
 ---
 import { FAQAccordion } from '@/components/FAQAccordion';
+import { CONTACT_FAQ_SECTION } from '@/constants/ui-texts/contact';
 ---
 
 <section
@@ -13,18 +14,17 @@ import { FAQAccordion } from '@/components/FAQAccordion';
 			<p
 				class="text-lg sm:text-xl md:text-2xl text-neutral-500 font-bold"
 			>
-				FAQ
+				{CONTACT_FAQ_SECTION.tagline}
 			</p>
 
 			<h2
 				class="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight"
 			>
-				Have questions about your Home Cinema project?
+				{CONTACT_FAQ_SECTION.title}
 			</h2>
 
 			<p class="text-neutral-400 text-sm md:text-base leading-relaxed">
-				If you're unsure where to start, what to expect, or how the
-				process works, we're here to guide you.
+				{CONTACT_FAQ_SECTION.description}
 			</p>
 		</div>
 
