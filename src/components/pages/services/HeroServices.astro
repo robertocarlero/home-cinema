@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 import heroImage from '@/assets/images/hero-services.png';
 import { Button } from '@/components/ui/button';
 import { ROUTES } from '@/constants/navigation';
@@ -7,11 +9,13 @@ import { SERVICES_HERO_SECTION } from '@/constants/ui-texts/services';
 
 <section class="w-screen h-[80vh] overflow-hidden bg-black px-4 py-8">
 	<div class="w-full h-full max-w-5xl mx-auto relative">
-		<img
+		<Image
 			alt={SERVICES_HERO_SECTION.heroImageAlt}
 			class="absolute w-full top-1/2 -translate-y-1/2 sm:right-0 sm:w-3/5 object-contain"
+			height={heroImage.height}
 			src={heroImage.src}
 			transition:name="hero-image"
+			width={heroImage.width}
 		/>
 
 		<div
@@ -31,7 +35,7 @@ import { SERVICES_HERO_SECTION } from '@/constants/ui-texts/services';
 				</h1>
 
 				<p
-					class="text-lg sm:text-xl lg:text-2xl text-neutral-500 drop-shadow-sm font-bold"
+					class="text-lg sm:text-xl lg:text-2xl text-neutral-400 drop-shadow-sm font-bold"
 				>
 					{SERVICES_HERO_SECTION.subtitle}
 				</p>

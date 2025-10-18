@@ -37,7 +37,7 @@ const items = Array.from({ length: 28 }, (_, i) => {
 		</div>
 		<div class="z-10 flex flex-col items-start max-w-xl space-y-4">
 			<p
-				class="text-lg sm:text-xl md:text-2xl text-neutral-500 font-bold"
+				class="text-lg sm:text-xl md:text-2xl text-neutral-400 font-bold"
 			>
 				{CONTACT_HERO_SECTION.tagline}
 			</p>
@@ -46,28 +46,28 @@ const items = Array.from({ length: 28 }, (_, i) => {
 				{CONTACT_HERO_SECTION.title}
 			</h2>
 
-			<p class="text-neutral-500">
+			<p class="text-neutral-400">
 				{CONTACT_HERO_SECTION.subtitle}
 			</p>
 
-			<p class="text-neutral-500">
+			<p class="text-neutral-400">
 				{CONTACT_HERO_SECTION.description}
 			</p>
 
 			<div class="space-y-1">
-				<p class="text-neutral-500">
+				<p class="text-neutral-400">
 					{CONTACT_LINKS.email.label}:
 					<a
-						class="text-white font-medium hover:text-neutral-300 transition"
+						class="text-white font-bold hover:text-neutral-300 transition"
 						href={CONTACT_LINKS.email.url}
 					>
 						{CONTACT_LINKS.email.address}
 					</a>
 				</p>
-				<p class="text-neutral-500">
+				<p class="text-neutral-400">
 					{CONTACT_LINKS.phone.label}:
 					<a
-						class="text-white font-medium hover:text-neutral-300 transition"
+						class="text-white font-bold hover:text-neutral-300 transition"
 						href={CONTACT_LINKS.phone.url}
 					>
 						{CONTACT_LINKS.phone.displayNumber}
@@ -76,7 +76,7 @@ const items = Array.from({ length: 28 }, (_, i) => {
 			</div>
 
 			<a
-				class="inline-flex items-center justify-center px-4 py-2 mt-4 text-sm font-medium text-white border border-neutral-700 rounded-md hover:bg-neutral-800 transition"
+				class="inline-flex items-center justify-center px-4 py-2 mt-4 text-sm font-bold text-white border border-neutral-700 rounded-md hover:bg-neutral-800 transition"
 				href={CONTACT_LINKS.whatsapp.url}
 				rel="noopener noreferrer"
 				target="_blank"

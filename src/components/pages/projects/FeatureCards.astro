@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 import { PROJECTS_FEATURES_SECTION } from '@/constants/ui-texts/projects';
 
 const featureCards = PROJECTS_FEATURES_SECTION.featureCards;
@@ -9,7 +11,7 @@ const featureCards = PROJECTS_FEATURES_SECTION.featureCards;
 >
 	<!-- Heading -->
 	<h2
-		class="max-w-3xl text-center text-2xl sm:text-3xl md:text-4xl font-semibold text-neutral-500"
+		class="max-w-3xl text-center text-2xl sm:text-3xl md:text-4xl font-bold text-neutral-400"
 	>
 		{
 			PROJECTS_FEATURES_SECTION.heading.values.map(
@@ -32,16 +34,18 @@ const featureCards = PROJECTS_FEATURES_SECTION.featureCards;
 			featureCards.map((card) => (
 				<div class="flex flex-col items-start justify-end gap-4 flex-1 rounded-2xl">
 					<div class="relative aspect-video w-full border border-neutral-900 rounded-lg overflow-hidden">
-						<img
+						<Image
 							alt={card.title}
 							class="absolute  w-full h-full object-cover"
+							height={card.image.height}
 							src={card.image.src}
+							width={card.image.width}
 						/>
 						<div class="h-full w-full absolute bg-gradient-to-b from-transparent to-black/90" />
 
 						<div class="relative flex items-end h-full p-4">
 							<div class="flex flex-col items-start">
-								<h3 class="text-lg font-semibold text-white">
+								<h3 class="text-lg font-bold text-white">
 									{card.title}
 								</h3>
 								<p class="text-sm text-neutral-400">

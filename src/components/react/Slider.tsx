@@ -80,7 +80,7 @@ export function Slider({ slides, className }: SliderProps) {
 									<h3 className="text-xl sm:text-2xl font-bold text-white mb-4">
 										{slide.title}
 									</h3>
-									<p className="text-neutral-500 mb-6 leading-relaxed">
+									<p className="text-neutral-400 mb-6 leading-relaxed">
 										{slide.description}
 									</p>
 									<a href={ROUTES.CONTACT.href}>
@@ -118,6 +118,7 @@ export function Slider({ slides, className }: SliderProps) {
 						onClick={goToPrevious}
 						disabled={currentSlide === 0}
 						className="text-white hover:bg-neutral-800 disabled:opacity-50"
+						aria-label="Go to previous slide"
 					>
 						<ArrowLeft className="h-5 w-5" />
 					</Button>
@@ -127,6 +128,7 @@ export function Slider({ slides, className }: SliderProps) {
 						onClick={goToNext}
 						disabled={currentSlide === slides.length - 1}
 						className="text-white hover:bg-neutral-800 disabled:opacity-50"
+						aria-label="Go to next slide"
 					>
 						<ArrowRight className="h-5 w-5" />
 					</Button>

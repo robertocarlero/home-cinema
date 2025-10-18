@@ -20,6 +20,7 @@ const { className = '' } = Astro.props;
 >
 	<!-- Background Video -->
 	<video
+		aria-label="Home Cinema Video without sound"
 		autoplay
 		class="absolute inset-0 w-full h-full object-cover"
 		loop
@@ -57,13 +58,13 @@ const { className = '' } = Astro.props;
 				<p
 					class="text-center sm:text-left sm:text-xl lg:text-2xl font-bold"
 				>
-					<span class="text-neutral-500">
+					<span class="text-neutral-400">
 						{HOME_VIDEO_SECTION.description.part1}{' '}
 					</span>
 					<span class="text-white">
 						{HOME_VIDEO_SECTION.description.highlight}
 					</span>
-					<span class="text-neutral-500">
+					<span class="text-neutral-400">
 						{HOME_VIDEO_SECTION.description.part2}
 					</span>
 				</p>

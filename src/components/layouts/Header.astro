@@ -4,6 +4,7 @@
  * Displays navigation bar with logo, menu items, and call-to-action button.
  */
 
+import { Image } from 'astro:assets';
 import { Menu } from 'lucide-react';
 
 import logo from '@/assets/logo.png';
@@ -32,10 +33,12 @@ const { className = '' } = Astro.props;
 			<div class="w-56 lg:w-72">
 				<a class="flex items-center w-fit" href={HOME_ROUTE}>
 					<!-- Logo Image -->
-					<img
+					<Image
 						alt="Home Cinema Logo"
 						class="h-8 object-contain"
+						height={logo.height}
 						src={logo.src}
+						width={logo.width}
 					/>
 				</a>
 			</div>
@@ -45,7 +48,7 @@ const { className = '' } = Astro.props;
 				{
 					NAVIGATION_ROUTES.map((route) => (
 						<a
-							class="text-white text-sm font-medium hover:text-neutral-200 transition-colors"
+							class="text-white text-sm font-bold hover:text-neutral-200 transition-colors"
 							href={route.href}
 						>
 							{route.label}
@@ -100,7 +103,7 @@ const { className = '' } = Astro.props;
 			{
 				NAVIGATION_ROUTES.map((route) => (
 					<a
-						class="block text-white text-lg font-medium hover:text-neutral-200 transition-colors py-2"
+						class="block text-white text-lg font-bold hover:text-neutral-200 transition-colors py-2"
 						href={route.href}
 						onclick="closeMobileMenu()"
 					>

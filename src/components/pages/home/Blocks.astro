@@ -27,30 +27,33 @@ const featureCards = HOME_BLOCKS_SECTION.features.map((feature) => ({
 }));
 ---
 
-<section class={`flex flex-col items-center justify-center gap-24 px-4 sm:px-8 py-24 bg-black ${className}`}>
-	<h2 class="text-2xl sm:text-3xl w-full max-w-3xl font-bold text-center px-4 text-neutral-500" set:html={HOME_BLOCKS_SECTION.title}></h2>
+<section
+	class={`flex flex-col items-center justify-center gap-24 px-4 sm:px-8 py-24 bg-black ${className}`}
+>
+	<h2
+		class="text-2xl sm:text-3xl w-full max-w-3xl font-bold text-center px-4 text-neutral-400"
+		set:html={HOME_BLOCKS_SECTION.title}
+	/>
 
 	<div class="flex max-w-5xl items-start gap-4 sm:gap-6 w-full flex-wrap">
-		{featureCards.map((feature) => {
-			const IconComponent = feature.icon;
-			return (
-				<div
-					class="min-w-72 flex-1 rounded-lg border border-solid border-neutral-50 bg-transparent p-4 sm:p-6 flex items-center gap-2.5"
-				>
-					<IconComponent
-						className="w-14 h-14 text-neutral-50 flex-shrink-0"
-						strokeWidth={1.5}
-					/>
-					<div class="flex flex-col items-start gap-2.5 flex-1">
-						<h3 class="text-xl sm:text-2xl">
-							{feature.title}
-						</h3>
-						<p class="font-medium text-xs text-neutral-500">
-							{feature.description}
-						</p>
+		{
+			featureCards.map((feature) => {
+				const IconComponent = feature.icon;
+				return (
+					<div class="min-w-72 flex-1 rounded-lg border border-solid border-neutral-50 bg-transparent p-4 sm:p-6 flex items-center gap-2.5">
+						<IconComponent
+							className="w-14 h-14 text-neutral-50 flex-shrink-0"
+							strokeWidth={1.5}
+						/>
+						<div class="flex flex-col items-start gap-2.5 flex-1">
+							<h3 class="text-xl sm:text-2xl">{feature.title}</h3>
+							<p class="font-bold text-xs text-neutral-400">
+								{feature.description}
+							</p>
+						</div>
 					</div>
-				</div>
-			);
-		})}
+				);
+			})
+		}
 	</div>
 </section>
