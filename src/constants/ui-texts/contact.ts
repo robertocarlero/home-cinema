@@ -31,6 +31,10 @@ export const CONTACT_FORM = {
 			label: 'Email address',
 			placeholder: 'Email address',
 		},
+		budget: {
+			label: 'Budget',
+			placeholder: 'Your budget',
+		},
 		message: {
 			label: 'Message',
 			placeholder: 'Message',

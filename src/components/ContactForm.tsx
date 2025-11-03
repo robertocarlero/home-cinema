@@ -18,6 +18,7 @@ export function ContactForm({ className }: ContactFormProps) {
 	const [formData, setFormData] = useState({
 		name: '',
 		email: '',
+		budget: '',
 		message: '',
 	});
 	const [isSubmitting, setIsSubmitting] = useState(false);
@@ -45,7 +46,7 @@ export function ContactForm({ className }: ContactFormProps) {
 			const result = await response.json();
 			if (!result.success) throw new Error(result.error);
 			toast.success(CONTACT_FORM.messages.success);
-			setFormData({ name: '', email: '', message: '' });
+			setFormData({ name: '', email: '', budget: '', message: '' });
 		} catch (error) {
 			console.error(error);
 			toast.error(CONTACT_FORM.messages.error);
@@ -54,7 +55,8 @@ export function ContactForm({ className }: ContactFormProps) {
 		}
 	};
 
-	const formIsValid = formData.name && formData.email && formData.message;
+	const formIsValid =
+		formData.name && formData.email && formData.budget && formData.message;
 
 	return (
 		<>
@@ -86,6 +88,19 @@ export function ContactForm({ className }: ContactFormProps) {
 						type="email"
 						placeholder={CONTACT_FORM.fields.email.placeholder}
 						value={formData.email}
+						onChange={handleChange}
+					/>
+				</div>
+
+				<div className="flex flex-col gap-2">
+					<Label htmlFor="budget" className="text-neutral-400">
+						{CONTACT_FORM.fields.budget.label}
+					</Label>
+					<Input
+						id="budget"
+						name="budget"
+						placeholder={CONTACT_FORM.fields.budget.placeholder}
+						value={formData.budget}
 						onChange={handleChange}
 					/>
 				</div>
