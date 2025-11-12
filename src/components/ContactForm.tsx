@@ -38,7 +38,7 @@ export function ContactForm({ className }: ContactFormProps) {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({
-					access_key: 'MY_ACCESS_KEY',
+					access_key: '1d8e672d-eaae-451d-b7c1-11201921e304',
 					...formData,
 				}),
 			});

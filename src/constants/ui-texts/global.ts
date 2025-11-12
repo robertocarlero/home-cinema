@@ -20,9 +20,9 @@ export const CONTACT_LINKS = {
 		displayNumber: '(469) 412-5478',
 	},
 	email: {
-		url: 'mailto:hello@mediamasters.solutions',
+		url: 'mailto:contact@homecinema.solutions',
 		label: 'Email',
-		address: 'hello@mediamasters.solutions',
+		address: 'contact@homecinema.solutions',
 	},
 } as const;
 
