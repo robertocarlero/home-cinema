@@ -17,6 +17,26 @@ import { PAGE_METADATA } from '@/constants/ui-texts/global';
 
 <Layout
 	description={PAGE_METADATA.projects.description}
+	seo={{
+		openGraph: {
+			basic: {
+				title: PAGE_METADATA.projects.title,
+				type: 'website',
+				image: '/logo.jpeg',
+				url: Astro.url.href,
+			},
+			optional: {
+				siteName: 'Home Cinema Solutions',
+			},
+		},
+		twitter: {
+			card: 'summary_large_image',
+			site: '@homecinema.solutions',
+			title: PAGE_METADATA.projects.title,
+			image: '/logo.jpeg',
+			description: PAGE_METADATA.projects.description,
+		},
+	}}
 	theme="dark"
 	title={PAGE_METADATA.projects.title}
 >

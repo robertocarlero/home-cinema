@@ -4,6 +4,8 @@
  * Provides the base HTML structure with head, meta tags, and body setup.
  */
 
+import { SEO } from 'astro-seo';
+
 import Footer from '@/components/layouts/Footer.astro';
 import Header from '@/components/layouts/Header.astro';
 import '@/styles/global.css';
@@ -14,6 +16,18 @@ export interface Props {
 	description?: string;
 	lang?: string;
 	theme?: 'light' | 'dark';
+	seo?: {
+		titleTemplate?: string;
+		titleDefault?: string;
+		canonical?: string;
+		noindex?: boolean;
+		nofollow?: boolean;
+		charset?: string;
+		languageAlternates?: Array<{ href: string; hrefLang: string }>;
+		openGraph?: any;
+		twitter?: any;
+		extend?: any;
+	};
 }
 
 const {
@@ -21,18 +35,32 @@ const {
 	description = 'Transform your space into a home cinema experience',
 	lang = 'en',
 	theme = 'dark',
+	seo = {},
 } = Astro.props;
 ---
 
 <!doctype html>
 <html class={theme} lang={lang}>
 	<head>
-		<meta charset="utf-8" />
-		<link href="/favicon.svg" rel="icon" type="image/svg+xml" />
 		<meta content="width=device-width, initial-scale=1.0" name="viewport" />
 		<meta content={Astro.generator} name="generator" />
-		<meta content={description} name="description" />
-		<title>{title}</title>
+
+		<SEO
+			charset="utf-8"
+			description={description}
+			title={title}
+			{...seo}
+			extend={{
+				link: [
+					{
+						rel: 'icon',
+						href: '/favicon.svg',
+						type: 'image/svg+xml',
+					},
+				],
+				...seo.extend,
+			}}
+		/>
 
 		<!-- Reset styles -->
 		<style>
