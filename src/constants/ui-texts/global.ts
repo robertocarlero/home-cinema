@@ -33,17 +33,17 @@ export const FOOTER_INFO = {
 		{
 			name: 'Instagram',
 			label: 'Instagram',
-			url: 'https://instagram.com/mediamasters.solutions',
+			url: 'https://www.instagram.com/homecinemasolutions1',
 		},
 		{
 			name: 'Youtube',
 			label: 'YouTube',
-			url: 'https://youtube.com/@mediamasters.solutions',
+			url: 'https://www.youtube.com/@homecinemasolutions01',
 		},
 		{
 			name: 'Facebook',
 			label: 'Facebook',
-			url: 'https://facebook.com/mediamasters.solutions',
+			url: 'https://www.facebook.com/homecinemasolutions1',
 		},
 	],
 } as const;
